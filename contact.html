@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Watseka Community Renewal</title>
+  <meta name="description" content="Get in touch with Watseka Community Renewal. Questions about grants, projects, or how to get involved.">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="header-logo">
+        <img src="images/logo.jpg" alt="Watseka Community Renewal">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="grants.html">Grants</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">We'd love to hear from you</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p><strong>Email:</strong><br>
+            <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>
+          </p>
+          <p><strong>Location:</strong><br>
+            Watseka, Illinois
+          </p>
+          <p><strong>Grant Applications Available At:</strong></p>
+          <ul style="margin-left: 20px; margin-bottom: 16px; color: #444;">
+            <li>Watseka Area Chamber of Commerce</li>
+            <li>The Watseka Library</li>
+            <li>The IEDA</li>
+            <li><a href="grants.html">Online at our Grants page</a></li>
+          </ul>
+          <p>Whether you have questions about our grant program, want to get involved as a volunteer, or have ideas for community projects, don't hesitate to reach out.</p>
+        </div>
+
+        <div class="contact-form">
+          <form action="https://formsubmit.co/WatsekaCommunityRenewal@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="WCR Website Contact">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://watsekacommunityrenewal.org/contact.html?submitted=true">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject" required>
+                <option value="">Select a topic...</option>
+                <option value="Grant Question">Grant Question</option>
+                <option value="Donation">Donation</option>
+                <option value="Volunteer">Volunteer</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Watseka Community Renewal &mdash; 501(c)(3) Nonprofit Organization</p>
+    <p><a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a></p>
+    <p>&copy; 2026 Watseka Community Renewal. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
