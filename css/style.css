@@ -321,23 +321,24 @@ section:nth-child(even) {
 
 /* ===== ANNOUNCEMENT BANNER ===== */
 .announcement {
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--linen);
+  color: var(--ink);
   text-align: center;
   padding: 52px 20px;
+  border-top: 3px solid var(--brass);
+  border-bottom: 1px solid var(--line);
 }
 
 .announcement h2 {
   font-size: 2rem;
   margin-bottom: 12px;
-  color: var(--ivory);
+  color: var(--ink);
 }
 
 .announcement p {
   font-size: 1.05rem;
   margin-bottom: 24px;
-  color: var(--cream);
-  opacity: 0.9;
+  color: var(--ink-soft);
 }
 
 /* ===== ABOUT PAGE ===== */
