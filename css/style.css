@@ -96,8 +96,9 @@ header .container {
 }
 
 .header-logo img {
-  height: 60px;
+  height: 88px;
   width: auto;
+  display: block;
 }
 
 nav ul {
@@ -136,35 +137,24 @@ nav a.active {
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
-  color: var(--ink);
+  background: linear-gradient(135deg, var(--brick) 0%, var(--brick-dark) 100%);
+  color: var(--ivory);
   text-align: center;
-  padding: 72px 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-logo {
-  width: 230px;
-  height: auto;
-  margin-bottom: 28px;
-  border-radius: 10px;
-  background: var(--white);
-  padding: 14px;
-  box-shadow: 0 8px 30px rgba(43,42,38,0.10);
+  padding: 88px 20px;
 }
 
 .hero h1 {
-  font-size: 2.7rem;
+  font-size: 2.9rem;
   font-weight: 600;
   margin-bottom: 16px;
-  color: var(--ink);
+  color: var(--ivory);
 }
 
 .hero p {
   font-size: 1.15rem;
   max-width: 620px;
   margin: 0 auto 32px;
-  color: var(--ink-soft);
+  color: rgba(251,248,241,0.92);
 }
 
 .hero p::after {
@@ -172,8 +162,32 @@ nav a.active {
   display: block;
   width: 64px;
   height: 2px;
-  background: var(--brass);
+  background: var(--brass-light);
   margin: 24px auto 0;
+}
+
+/* Hero CTAs — high-contrast ivory pair so they stand out on the brick hero */
+.hero .btn-primary {
+  background: var(--ivory);
+  color: var(--brick);
+  border-color: var(--ivory);
+}
+
+.hero .btn-primary:hover {
+  background: #ffffff;
+  color: var(--brick-dark);
+  border-color: #ffffff;
+}
+
+.hero .btn-secondary {
+  background: transparent;
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+.hero .btn-secondary:hover {
+  background: var(--ivory);
+  color: var(--brick);
 }
 
 .btn {
@@ -696,12 +710,12 @@ footer a {
     padding: 12px 24px;
   }
 
-  .hero h1 {
-    font-size: 1.8rem;
+  .header-logo img {
+    height: 60px;
   }
 
-  .hero-logo {
-    width: 160px;
+  .hero h1 {
+    font-size: 2rem;
   }
 
   .form-row {
