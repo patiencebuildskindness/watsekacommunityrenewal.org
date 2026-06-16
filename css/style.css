@@ -316,6 +316,82 @@ section:nth-child(even) {
   margin: 8px 0 16px 24px;
 }
 
+.recipients {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+  background: var(--off-white);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 32px 24px;
+}
+
+.recipients h3 {
+  color: var(--blue-dark);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.recipients p {
+  color: #444;
+}
+
+.recipients-list {
+  list-style: none;
+  margin: 20px auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: 640px;
+}
+
+.recipients-list li {
+  background: var(--white);
+  border-top: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 18px 16px;
+  font-weight: 600;
+  color: var(--blue-dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.recipients-thanks {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--gray);
+}
+
+.grant-archive {
+  margin: 16px 0 24px;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  background: var(--off-white);
+}
+
+.grant-archive summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+.grant-archive[open] summary {
+  border-bottom: 1px solid var(--gray-light);
+  margin-bottom: 8px;
+}
+
+.grant-archive h3,
+.grant-archive ul,
+.grant-archive p {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.grant-archive ul {
+  margin: 8px 0 16px 42px;
+}
+
 .grant-banner {
   width: 100%;
   max-width: 500px;
