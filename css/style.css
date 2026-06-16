@@ -91,12 +91,12 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .header-logo img {
-  height: 88px;
+  height: 120px;
   width: auto;
   display: block;
 }
@@ -712,7 +712,7 @@ footer a {
   }
 
   .header-logo img {
-    height: 60px;
+    height: 72px;
   }
 
   .hero h1 {
