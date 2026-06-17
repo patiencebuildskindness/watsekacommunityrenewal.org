@@ -391,34 +391,77 @@ section:nth-child(even) {
   margin: 8px 0 16px 24px;
 }
 
-.recipients {
-  max-width: 880px;
-  margin: 0 auto 48px;
+/* Congratulations gold ribbon banner */
+.ribbon {
+  position: relative;
+  max-width: 700px;
+  margin: 16px auto 56px;
+  filter: drop-shadow(0 8px 14px rgba(43,42,38,0.20));
+}
+
+/* folded tails peeking out behind each end */
+.ribbon::before,
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  width: 58px;
+  height: 34px;
+  background: var(--brass-dark);
+  z-index: 1;
+}
+
+.ribbon::before {
+  left: -6px;
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
+}
+
+.ribbon::after {
+  right: -6px;
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
+}
+
+.ribbon-band {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, #B58F50 0%, var(--brass) 55%, #876A31 100%);
+  color: var(--ivory);
   text-align: center;
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--brass);
-  border-radius: 6px;
-  padding: 56px 40px;
+  padding: 40px 72px;
+  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%);
 }
 
-.recipients h3 {
-  color: var(--ink);
-  margin-bottom: 16px;
-  font-size: 2.3rem;
+/* thin inset pinstripes echoing the ribbon's gold line (clipped to the
+   fishtail by the band's own clip-path) */
+.ribbon-band::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  bottom: 10px;
+  border-top: 2px solid rgba(251,248,241,0.5);
+  border-bottom: 2px solid rgba(251,248,241,0.5);
+  pointer-events: none;
 }
 
-.recipients p {
-  color: var(--ink-soft);
-  font-size: 1.1rem;
-  max-width: 640px;
-  margin: 0 auto 12px;
+.ribbon-band h3 {
+  color: var(--ivory);
+  margin-bottom: 14px;
+  font-size: 2.1rem;
 }
 
-.recipients-thanks {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  color: var(--gray);
+.ribbon-band p {
+  color: rgba(251,248,241,0.95);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto 10px;
+}
+
+.ribbon-band .ribbon-note {
+  font-size: 0.92rem;
+  color: rgba(251,248,241,0.82);
+  margin-bottom: 0;
 }
 
 /* Recipient profile cards */
@@ -775,6 +818,14 @@ footer a {
 
   .hero h1 {
     font-size: 2rem;
+  }
+
+  .ribbon-band {
+    padding: 32px 44px;
+  }
+
+  .ribbon-band h3 {
+    font-size: 1.55rem;
   }
 
   .form-row {
