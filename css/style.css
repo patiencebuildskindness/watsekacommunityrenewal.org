@@ -391,76 +391,31 @@ section:nth-child(even) {
   margin: 8px 0 16px 24px;
 }
 
-/* Congratulations gold ribbon banner */
-.ribbon {
-  position: relative;
-  max-width: 700px;
-  margin: 16px auto 56px;
-  filter: drop-shadow(0 8px 14px rgba(43,42,38,0.20));
-}
-
-/* folded tails peeking out behind each end */
-.ribbon::before,
-.ribbon::after {
-  content: "";
-  position: absolute;
-  bottom: -16px;
-  width: 58px;
-  height: 34px;
-  background: var(--brass-dark);
-  z-index: 1;
-}
-
-.ribbon::before {
-  left: -6px;
-  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
-}
-
-.ribbon::after {
-  right: -6px;
-  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
-}
-
-.ribbon-band {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(180deg, #B58F50 0%, var(--brass) 55%, #876A31 100%);
+/* Full-width gold band highlighting the congratulations */
+.congrats-band {
+  background: var(--brass);
   color: var(--ivory);
   text-align: center;
-  padding: 40px 72px;
-  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%);
+  padding: 56px 0;
+  margin: 8px 0 56px;
 }
 
-/* thin inset pinstripes echoing the ribbon's gold line (clipped to the
-   fishtail by the band's own clip-path) */
-.ribbon-band::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 10px;
-  bottom: 10px;
-  border-top: 2px solid rgba(251,248,241,0.5);
-  border-bottom: 2px solid rgba(251,248,241,0.5);
-  pointer-events: none;
-}
-
-.ribbon-band h3 {
+.congrats-band h3 {
   color: var(--ivory);
   margin-bottom: 14px;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
 }
 
-.ribbon-band p {
-  color: rgba(251,248,241,0.95);
-  font-size: 1.05rem;
-  max-width: 520px;
+.congrats-band p {
+  color: rgba(255,255,255,0.96);
+  font-size: 1.08rem;
+  max-width: 640px;
   margin: 0 auto 10px;
 }
 
-.ribbon-band .ribbon-note {
-  font-size: 0.92rem;
-  color: rgba(251,248,241,0.82);
+.congrats-band .congrats-note {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
   margin-bottom: 0;
 }
 
@@ -820,12 +775,12 @@ footer a {
     font-size: 2rem;
   }
 
-  .ribbon-band {
-    padding: 32px 44px;
+  .congrats-band {
+    padding: 40px 0;
   }
 
-  .ribbon-band h3 {
-    font-size: 1.55rem;
+  .congrats-band h3 {
+    font-size: 1.7rem;
   }
 
   .form-row {
