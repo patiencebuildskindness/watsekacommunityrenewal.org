@@ -16,6 +16,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Shrink the header (and logo) once the page is scrolled
+  var header = document.querySelector('header');
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // Set active nav link based on current page
   var currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav a').forEach(function (link) {
