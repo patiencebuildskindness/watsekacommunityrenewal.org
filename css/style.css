@@ -944,6 +944,7 @@ footer a {
   font-size: 1.6rem;
   color: var(--ink);
   margin-bottom: 6px;
+  scroll-margin-top: 120px;
 }
 
 .mural-section-sub {

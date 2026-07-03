@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var hash = window.location.hash;
     if (hash === '#tab-past') {
       activateTab('past');
-    } else if (hash === '#vote') {
+    } else if (hash === '#vote' || hash === '#designs') {
       activateTab('new');
-      var voteEl = document.getElementById('vote');
-      if (voteEl) setTimeout(function () { voteEl.scrollIntoView(); }, 50);
+      var target = document.getElementById(hash.slice(1));
+      if (target) setTimeout(function () { target.scrollIntoView(); }, 50);
     }
   }
 
