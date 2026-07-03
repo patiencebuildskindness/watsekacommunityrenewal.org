@@ -36,13 +36,137 @@
       <h2 class="section-title">Our Projects</h2>
       <p class="section-subtitle">Community renewal efforts in Watseka</p>
 
-      <div class="projects-placeholder">
-        <div class="icon">&#127959;</div>
-        <h3>Projects Coming Soon</h3>
-        <p>We are currently documenting our community renewal projects. Check back soon to see photos and updates on the work being done across Watseka.</p>
-        <br>
-        <p>Interested in learning more about our current efforts? <a href="contact.html">Contact us</a> or follow along as we continue to invest in Watseka's future.</p>
+      <div class="project-tabs" role="tablist">
+        <button class="project-tab active" role="tab" aria-selected="true" aria-controls="tab-new" id="tabbtn-new" data-tab="new">New Public Art Project</button>
+        <button class="project-tab" role="tab" aria-selected="false" aria-controls="tab-past" id="tabbtn-past" data-tab="past">Past Projects</button>
       </div>
+
+      <!-- ===== NEW PUBLIC ART PROJECT ===== -->
+      <div class="project-panel" id="tab-new" role="tabpanel" aria-labelledby="tabbtn-new">
+
+        <div class="mural-intro">
+          <p class="mural-eyebrow">New Public Art Project</p>
+          <h3 class="mural-title">Hubbard Trail: The Path That Built Watseka</h3>
+          <p class="mural-location">A new wall mural at <strong>203 E. Walnut Street</strong>, downtown Watseka</p>
+          <p>Watseka Community Renewal is bringing a brand-new wall mural to downtown Watseka, celebrating the rich history and enduring spirit of our community. Centered on the theme <strong>&ldquo;Hubbard Trail: The Path That Built Watseka,&rdquo;</strong> this mural will be a vibrant reminder of our shared heritage &mdash; and, true to our mission, it&rsquo;s being built by the community. We&rsquo;re inviting residents to help bring it to life through voting, volunteering, and donations.</p>
+        </div>
+
+        <div class="mural-vote-banner">
+          <h3>The Community Casts the Vote</h3>
+          <p>Three designs are on the table &mdash; and your vote decides which one goes up on the wall. Online voting is open <strong>now through July 19</strong>. Cast your vote below, then scroll down for in-person voting locations.</p>
+          <a href="#vote" class="btn btn-primary">Vote Now</a>
+        </div>
+
+        <h3 class="mural-section-heading">Choose Your Favorite Design</h3>
+        <p class="mural-section-sub">Click a design to see it full size. Then cast your vote in the form below.</p>
+        <div class="mural-designs">
+          <figure class="mural-design">
+            <a href="images/mural-design-1.jpg" target="_blank" rel="noopener">
+              <img src="images/mural-design-1.jpg" alt="Mural Design Option 1" loading="lazy">
+            </a>
+            <figcaption>Design Option 1</figcaption>
+          </figure>
+          <figure class="mural-design">
+            <a href="images/mural-design-2.jpg" target="_blank" rel="noopener">
+              <img src="images/mural-design-2.jpg" alt="Mural Design Option 2" loading="lazy">
+            </a>
+            <figcaption>Design Option 2</figcaption>
+          </figure>
+          <figure class="mural-design">
+            <a href="images/mural-design-3.jpg" target="_blank" rel="noopener">
+              <img src="images/mural-design-3.jpg" alt="Mural Design Option 3" loading="lazy">
+            </a>
+            <figcaption>Design Option 3</figcaption>
+          </figure>
+        </div>
+
+        <!-- ===== VOTE FORM ===== -->
+        <div class="vote-form" id="vote">
+          <h3>Cast Your Vote</h3>
+          <p class="form-note">One vote per person. Voting closes July 19, after which the winning design will be officially announced.</p>
+          <form action="https://formspree.io/f/xbdpyvpk" method="POST">
+            <input type="hidden" name="_subject" value="WCR Mural Vote">
+
+            <div class="form-group">
+              <label>Which design gets your vote? <span class="req">*</span></label>
+              <div class="vote-options">
+                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 1" required> Design Option 1</label>
+                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 2"> Design Option 2</label>
+                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 3"> Design Option 3</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vote-name">Name <span class="req">*</span></label>
+                <input type="text" id="vote-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="vote-age">Age <span class="req">*</span></label>
+                <input type="number" id="vote-age" name="age" min="1" max="120" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vote-town">Town you're from <span class="req">*</span></label>
+                <input type="text" id="vote-town" name="town" required>
+              </div>
+              <div class="form-group">
+                <label for="vote-email">Email <span class="req">*</span></label>
+                <input type="email" id="vote-email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="vote-notes">Notes or suggestions <span class="optional">(optional)</span></label>
+              <textarea id="vote-notes" name="notes" rows="4" placeholder="Have a suggestion or a tweak you'd love to see in the design? Let us know."></textarea>
+            </div>
+
+            <div class="form-group form-checkbox">
+              <label><input type="checkbox" name="Volunteer Opt-In" value="Yes"> Notify me about volunteer opportunities for the mural and future projects.</label>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">Submit My Vote</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===== IN-PERSON VOTING ===== -->
+        <div class="mural-info-grid">
+          <div class="mural-info-card">
+            <h3>Prefer to Vote in Person?</h3>
+            <p>Physical ballots will be available at key community locations and events throughout July:</p>
+            <ul>
+              <li><strong>Watseka Farmers Market</strong> &mdash; Saturday, July 11</li>
+              <li><strong>Watseka Public Library</strong> &mdash; Monday, July 13 through Saturday, July 18</li>
+              <li><strong>Community Meetings</strong> &mdash; Pop-up voting stations at various community organization meetings throughout July</li>
+            </ul>
+            <p>Voting concludes <strong>July 19</strong>, after which the winning design will be officially announced.</p>
+          </div>
+          <div class="mural-info-card">
+            <h3>Get Involved</h3>
+            <p><strong>Volunteer:</strong> Help with the physical development and painting of the mural. No professional artistic experience required &mdash; just passion for the community and a willingness to help. (Check the volunteer box in the vote form and we&rsquo;ll be in touch.)</p>
+            <p><strong>Donate:</strong> Contributions cover high-quality paint, weatherproofing, artist fees, and equipment. Give online, or mail a check to <strong>Watseka Community Renewal, 103 W. Cherry St., Watseka, IL 60970</strong>.</p>
+            <a href="donate.html" class="btn btn-red">Donate to the Mural</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== PAST PROJECTS ===== -->
+      <div class="project-panel" id="tab-past" role="tabpanel" aria-labelledby="tabbtn-past" hidden>
+        <div class="past-project">
+          <div class="past-project-body">
+            <p class="mural-eyebrow">Completed &middot; 2026</p>
+            <h3 class="mural-title">Small Business Grant Program</h3>
+            <p>Through a pilot project, Watseka Community Renewal supported local businesses with small grants for storefront improvements, marketing, and operational growth. In our first funding cycle we awarded <strong>five grants of $1,000 each</strong> to Watseka businesses. Applications closed on April 1, 2026, and the recipients have been announced.</p>
+            <a href="grants.html" class="btn btn-primary">View Grant Details &amp; Recipients</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

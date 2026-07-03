@@ -39,6 +39,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Vote splash pop-up (home page) — show once per browser session
+  var splash = document.getElementById('voteSplash');
+  if (splash) {
+    var closeSplash = function () {
+      splash.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    };
+
+    if (!sessionStorage.getItem('voteSplashSeen')) {
+      splash.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      sessionStorage.setItem('voteSplashSeen', '1');
+    }
+
+    var splashCloseBtn = document.getElementById('voteSplashClose');
+    var splashDismissBtn = document.getElementById('voteSplashDismiss');
+    if (splashCloseBtn) splashCloseBtn.addEventListener('click', closeSplash);
+    if (splashDismissBtn) splashDismissBtn.addEventListener('click', closeSplash);
+
+    // Close when clicking the dark overlay (but not the modal itself)
+    splash.addEventListener('click', function (e) {
+      if (e.target === splash) closeSplash();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !splash.hasAttribute('hidden')) closeSplash();
+    });
+  }
+
+  // Project page tabs
+  var projectTabs = document.querySelectorAll('.project-tab');
+  if (projectTabs.length) {
+    var activateTab = function (name) {
+      projectTabs.forEach(function (tab) {
+        var isActive = tab.getAttribute('data-tab') === name;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      document.querySelectorAll('.project-panel').forEach(function (panel) {
+        if (panel.id === 'tab-' + name) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      });
+    };
+
+    projectTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        activateTab(tab.getAttribute('data-tab'));
+      });
+    });
+
+    // Deep links: #vote or #tab-past open the right tab
+    var hash = window.location.hash;
+    if (hash === '#tab-past') {
+      activateTab('past');
+    } else if (hash === '#vote') {
+      activateTab('new');
+      var voteEl = document.getElementById('vote');
+      if (voteEl) setTimeout(function () { voteEl.scrollIntoView(); }, 50);
+    }
+  }
+
   // Show success message if form was submitted
   if (window.location.search.indexOf('submitted=true') !== -1) {
     var banner = document.createElement('div');
