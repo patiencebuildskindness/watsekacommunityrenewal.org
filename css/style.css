@@ -736,6 +736,395 @@ footer a {
   color: var(--gold-light);
 }
 
+/* ===== VOTE SPLASH POP-UP ===== */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(43, 42, 38, 0.72);
+  backdrop-filter: blur(3px);
+  animation: splash-fade 0.25s ease;
+}
+
+.splash-overlay[hidden] {
+  display: none;
+}
+
+@keyframes splash-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.splash-modal {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  background: var(--ivory);
+  border-radius: 6px;
+  border-top: 6px solid var(--brass);
+  padding: 44px 38px 36px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(43, 42, 38, 0.4);
+  animation: splash-pop 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.1);
+}
+
+@keyframes splash-pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.splash-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.splash-close:hover {
+  color: var(--ink);
+}
+
+.splash-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  margin-bottom: 8px;
+}
+
+.splash-title {
+  font-size: 2.6rem;
+  color: var(--brick);
+  margin-bottom: 14px;
+}
+
+.splash-summary {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin-bottom: 26px;
+}
+
+.splash-btn {
+  font-size: 1rem;
+  padding: 14px 44px;
+}
+
+.splash-dismiss {
+  display: block;
+  margin: 16px auto 0;
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.splash-dismiss:hover {
+  color: var(--ink);
+}
+
+/* ===== PROJECT TABS ===== */
+.project-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  padding: 12px 22px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.project-tab:hover {
+  color: var(--ink);
+}
+
+.project-tab.active {
+  color: var(--brass-dark);
+  border-bottom-color: var(--brass);
+}
+
+.project-panel[hidden] {
+  display: none;
+}
+
+/* ===== MURAL PROJECT ===== */
+.mural-intro {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.mural-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  margin-bottom: 8px;
+}
+
+.mural-title {
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.mural-location {
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.mural-intro p {
+  color: var(--ink-soft);
+}
+
+.mural-vote-banner {
+  background: var(--brass);
+  color: var(--ivory);
+  text-align: center;
+  padding: 40px 28px;
+  border-radius: 6px;
+  margin-bottom: 48px;
+}
+
+.mural-vote-banner h3 {
+  color: var(--ivory);
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.mural-vote-banner p {
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 620px;
+  margin: 0 auto 22px;
+}
+
+.mural-vote-banner .btn-primary {
+  background: var(--ivory);
+  color: var(--brick);
+  border-color: var(--ivory);
+}
+
+.mural-vote-banner .btn-primary:hover {
+  background: #fff;
+  color: var(--brick-dark);
+  border-color: #fff;
+}
+
+.mural-section-heading {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.mural-section-sub {
+  text-align: center;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+
+.mural-designs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.mural-design {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(43, 42, 38, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mural-design:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(43, 42, 38, 0.12);
+}
+
+.mural-design img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.mural-design figcaption {
+  text-align: center;
+  padding: 14px;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+/* ===== VOTE FORM ===== */
+.vote-form {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  scroll-margin-top: 120px;
+  background: var(--off-white);
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brass);
+}
+
+.vote-form h3 {
+  color: var(--ink);
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.vote-form .form-note {
+  color: var(--gray);
+  margin-bottom: 26px;
+  font-size: 0.95rem;
+}
+
+.vote-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vote-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.vote-option:hover {
+  border-color: var(--brass);
+}
+
+.vote-option input {
+  width: auto;
+  accent-color: var(--brass);
+}
+
+.form-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.form-checkbox input {
+  width: auto;
+  margin-top: 5px;
+  accent-color: var(--brass);
+}
+
+.req {
+  color: var(--brick);
+}
+
+.optional {
+  color: var(--gray);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* ===== MURAL INFO GRID ===== */
+.mural-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mural-info-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  border-radius: 4px;
+  padding: 30px 28px;
+}
+
+.mural-info-card h3 {
+  color: var(--ink);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.mural-info-card p {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  margin-bottom: 14px;
+}
+
+.mural-info-card ul {
+  margin: 0 0 16px 22px;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.mural-info-card li {
+  margin-bottom: 8px;
+}
+
+/* ===== PAST PROJECTS ===== */
+.past-project {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  border-radius: 6px;
+  padding: 36px 34px;
+}
+
+.past-project .mural-title {
+  margin-bottom: 14px;
+}
+
+.past-project p {
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -797,5 +1186,21 @@ footer a {
 
   header .container {
     flex-wrap: wrap;
+  }
+
+  .splash-modal {
+    padding: 40px 24px 30px;
+  }
+
+  .splash-title {
+    font-size: 2.1rem;
+  }
+
+  .vote-form {
+    padding: 28px 20px;
+  }
+
+  .project-tab {
+    padding: 12px 14px;
   }
 }
