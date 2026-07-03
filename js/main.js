@@ -48,9 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     if (!sessionStorage.getItem('voteSplashSeen')) {
-      splash.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
-      sessionStorage.setItem('voteSplashSeen', '1');
+      // Wait 3 seconds after landing before showing the pop-up
+      setTimeout(function () {
+        splash.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        sessionStorage.setItem('voteSplashSeen', '1');
+      }, 3000);
     }
 
     var splashCloseBtn = document.getElementById('voteSplashClose');

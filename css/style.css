@@ -989,6 +989,20 @@ footer a {
   color: var(--ink);
 }
 
+.mural-zoom-hint {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--gray);
+}
+
+.mural-design:hover .mural-zoom-hint {
+  color: var(--brass-dark);
+}
+
 /* ===== VOTE FORM ===== */
 .vote-form {
   max-width: 720px;
