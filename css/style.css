@@ -691,6 +691,27 @@ section:nth-child(even) {
   color: var(--ink-soft);
 }
 
+.donate-foundation {
+  margin-top: 32px;
+  padding: 28px 30px;
+  background: var(--paper, #f7f5f0);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-align: left;
+}
+
+.donate-foundation h3 {
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.donate-foundation p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
 /* ===== CONTACT PAGE ===== */
 .contact-grid {
   display: grid;
