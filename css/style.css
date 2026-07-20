@@ -346,6 +346,15 @@ section:nth-child(even) {
   color: var(--ink-soft);
 }
 
+.announcement p.announcement-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  margin-bottom: 8px;
+}
+
 /* ===== ABOUT PAGE ===== */
 .about-content {
   max-width: 800px;
