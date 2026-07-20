@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Deep links: #vote or #tab-past open the right tab
+    // Deep links: #updates / #designs or #tab-past open the right tab
     var hash = window.location.hash;
     if (hash === '#tab-past') {
       activateTab('past');
-    } else if (hash === '#vote' || hash === '#designs') {
+    } else if (hash === '#vote' || hash === '#designs' || hash === '#updates') {
       activateTab('new');
       var target = document.getElementById(hash.slice(1));
       if (target) setTimeout(function () { target.scrollIntoView(); }, 50);

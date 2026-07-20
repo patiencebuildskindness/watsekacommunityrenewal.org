@@ -52,13 +52,13 @@
         </div>
 
         <div class="mural-vote-banner">
-          <h3>The Community Casts the Vote</h3>
-          <p>Three designs are on the table &mdash; and your vote decides which one goes up on the wall. Online voting is open <strong>now through July 19</strong>. Cast your vote below, then scroll down for in-person voting locations.</p>
-          <a href="#designs" class="btn btn-primary">Vote Now</a>
+          <h3>Voting Has Closed &mdash; We&rsquo;re Tallying the Votes!</h3>
+          <p>Thank you to everyone who cast a vote! Online and in-person voting have now wrapped up, and we&rsquo;re busy counting every ballot. Want to be the first to know which design won? Sign up below for email updates on the winner and other WCR news.</p>
+          <a href="#updates" class="btn btn-primary">Sign Up for Updates</a>
         </div>
 
-        <h3 class="mural-section-heading" id="designs">Choose Your Favorite Design</h3>
-        <p class="mural-section-sub">Click a design to see it full size. Then cast your vote in the form below.</p>
+        <h3 class="mural-section-heading" id="designs">The Designs You Voted On</h3>
+        <p class="mural-section-sub">Click a design to see it full size. The community has spoken &mdash; the winning design will be announced soon.</p>
         <div class="mural-designs">
           <figure class="mural-design">
             <a href="images/mural-design-1.jpg" target="_blank" rel="noopener">
@@ -92,55 +92,35 @@
           </figure>
         </div>
 
-        <!-- ===== VOTE FORM ===== -->
-        <div class="vote-form" id="vote">
-          <h3>Cast Your Vote</h3>
-          <p class="form-note">One vote per person. Voting closes July 19, after which the winning design will be officially announced.</p>
+        <!-- ===== EMAIL UPDATES SIGNUP ===== -->
+        <div class="vote-form" id="updates">
+          <h3>Sign Up for WCR Email Updates</h3>
+          <p class="form-note">Be the first to hear the winning mural design, plus news on upcoming projects, events, and ways to get involved. We&rsquo;ll only email when there&rsquo;s something worth sharing.</p>
           <form action="https://formspree.io/f/xbdpyvpk" method="POST">
-            <input type="hidden" name="_subject" value="WCR Mural Vote">
-
-            <div class="form-group">
-              <label>Which design gets your vote? <span class="req">*</span></label>
-              <div class="vote-options">
-                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 1" required> Design Option 1</label>
-                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 2"> Design Option 2</label>
-                <label class="vote-option"><input type="radio" name="Design Vote" value="Design Option 3"> Design Option 3</label>
-              </div>
-            </div>
+            <input type="hidden" name="_subject" value="WCR Email Updates Signup">
 
             <div class="form-row">
               <div class="form-group">
-                <label for="vote-name">Name <span class="req">*</span></label>
-                <input type="text" id="vote-name" name="name" required>
+                <label for="signup-name">Name <span class="req">*</span></label>
+                <input type="text" id="signup-name" name="name" required>
               </div>
               <div class="form-group">
-                <label for="vote-age">Age <span class="req">*</span></label>
-                <input type="number" id="vote-age" name="age" min="1" max="120" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="vote-town">Town you're from <span class="req">*</span></label>
-                <input type="text" id="vote-town" name="town" required>
-              </div>
-              <div class="form-group">
-                <label for="vote-email">Email <span class="req">*</span></label>
-                <input type="email" id="vote-email" name="email" required>
+                <label for="signup-email">Email <span class="req">*</span></label>
+                <input type="email" id="signup-email" name="email" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="vote-notes">Notes or suggestions <span class="optional">(optional)</span></label>
-              <textarea id="vote-notes" name="notes" rows="4" placeholder="Have a suggestion or a tweak you'd love to see in the design? Let us know."></textarea>
+              <label for="signup-town">Town you're from <span class="optional">(optional)</span></label>
+              <input type="text" id="signup-town" name="town">
             </div>
 
             <div class="form-group form-checkbox">
-              <label><input type="checkbox" name="Volunteer Opt-In" value="Yes"> Notify me about volunteer opportunities for the mural and future projects.</label>
+              <label><input type="checkbox" name="Volunteer Opt-In" value="Yes"> I&rsquo;d also like to hear about volunteer opportunities for the mural and future projects.</label>
             </div>
 
             <div class="form-submit">
-              <button type="submit" class="btn btn-primary">Submit My Vote</button>
+              <button type="submit" class="btn btn-primary">Sign Me Up</button>
             </div>
           </form>
         </div>
@@ -148,14 +128,14 @@
         <!-- ===== IN-PERSON VOTING ===== -->
         <div class="mural-info-grid">
           <div class="mural-info-card">
-            <h3>Prefer to Vote in Person?</h3>
-            <p>Physical ballots will be available at key community locations and events throughout July:</p>
+            <h3>Thank You for Voting!</h3>
+            <p>The community turned out in a big way &mdash; both online and at in-person ballot stations throughout July:</p>
             <ul>
-              <li><strong>Watseka Farmers Market</strong> &mdash; Saturday, July 11</li>
-              <li><strong>Watseka Public Library</strong> &mdash; Monday, July 13 through Saturday, July 18</li>
-              <li><strong>Community Meetings</strong> &mdash; Pop-up voting stations at various community organization meetings throughout July</li>
+              <li><strong>Watseka Farmers Market</strong></li>
+              <li><strong>Watseka Public Library</strong></li>
+              <li><strong>Community Meetings</strong> &mdash; pop-up voting stations at organizations across town</li>
             </ul>
-            <p>Voting concludes <strong>July 19</strong>, after which the winning design will be officially announced.</p>
+            <p>Voting has now closed and every ballot is being tallied. The winning design will be officially announced soon &mdash; <a href="#updates">sign up for email updates</a> to hear it first.</p>
           </div>
           <div class="mural-info-card">
             <h3>Get Involved</h3>
