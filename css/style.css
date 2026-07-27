@@ -775,6 +775,7 @@ footer a {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  overflow-y: auto;
   background: rgba(43, 42, 38, 0.72);
   backdrop-filter: blur(3px);
   animation: splash-fade 0.25s ease;
@@ -798,6 +799,8 @@ footer a {
   border-top: 6px solid var(--brass);
   padding: 44px 38px 36px;
   text-align: center;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   box-shadow: 0 24px 60px rgba(43, 42, 38, 0.4);
   animation: splash-pop 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.1);
 }
@@ -837,6 +840,20 @@ footer a {
   font-size: 2.6rem;
   color: var(--brick);
   margin-bottom: 14px;
+}
+
+.splash-art {
+  display: block;
+  margin: 0 0 18px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(43, 42, 38, 0.22);
+}
+
+.splash-art img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .splash-summary {

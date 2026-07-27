@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
     };
 
-    if (!sessionStorage.getItem('voteSplashSeen')) {
+    if (!sessionStorage.getItem('muralWinnerSplashSeen')) {
       // Wait 3 seconds after landing before showing the pop-up
       setTimeout(function () {
         splash.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('voteSplashSeen', '1');
+        sessionStorage.setItem('muralWinnerSplashSeen', '1');
       }, 3000);
     }
 
