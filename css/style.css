@@ -862,6 +862,38 @@ footer a {
   margin-bottom: 26px;
 }
 
+.splash-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  text-align: left;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 26px;
+}
+
+.splash-details > div {
+  flex: 1 1 160px;
+}
+
+.splash-details dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  margin-bottom: 5px;
+}
+
+.splash-details dd {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .splash-btn {
   font-size: 1rem;
   padding: 14px 44px;
@@ -1265,6 +1297,11 @@ footer a {
 
   .splash-modal {
     padding: 40px 24px 30px;
+  }
+
+  .splash-details {
+    flex-direction: column;
+    gap: 14px;
   }
 
   .splash-title {

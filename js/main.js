@@ -39,25 +39,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Vote splash pop-up (home page) — show once per browser session
-  var splash = document.getElementById('voteSplash');
+  // Ribbon cutting invitation pop-up (home page) — show once per browser session,
+  // and stop showing it automatically once the event date has passed.
+  var splash = document.getElementById('ribbonSplash');
   if (splash) {
+    var eventEnd = new Date(splash.getAttribute('data-event-end'));
+    var eventPassed = !isNaN(eventEnd) && new Date() > eventEnd;
+
     var closeSplash = function () {
       splash.setAttribute('hidden', '');
       document.body.style.overflow = '';
     };
 
-    if (!sessionStorage.getItem('muralWinnerSplashSeen')) {
+    if (!eventPassed && !sessionStorage.getItem('ribbonCuttingSplashSeen')) {
       // Wait 3 seconds after landing before showing the pop-up
       setTimeout(function () {
         splash.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('muralWinnerSplashSeen', '1');
+        sessionStorage.setItem('ribbonCuttingSplashSeen', '1');
       }, 3000);
     }
 
-    var splashCloseBtn = document.getElementById('voteSplashClose');
-    var splashDismissBtn = document.getElementById('voteSplashDismiss');
+    var splashCloseBtn = document.getElementById('ribbonSplashClose');
+    var splashDismissBtn = document.getElementById('ribbonSplashDismiss');
     if (splashCloseBtn) splashCloseBtn.addEventListener('click', closeSplash);
     if (splashDismissBtn) splashDismissBtn.addEventListener('click', closeSplash);
 
