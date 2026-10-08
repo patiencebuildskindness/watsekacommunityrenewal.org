@@ -1202,7 +1202,8 @@ footer a {
   margin-bottom: 14px;
 }
 
-.mural-info-card ul {
+.mural-info-card ul,
+.mural-info-card ol {
   margin: 0 0 16px 22px;
   color: var(--ink-soft);
   font-size: 0.97rem;

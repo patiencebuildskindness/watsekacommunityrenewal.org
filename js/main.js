@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Ribbon cutting invitation pop-up (home page) — show once per browser session,
-  // and stop showing it automatically once the event date has passed.
-  var splash = document.getElementById('ribbonSplash');
+  // Sponsor a Tree pop-up (home page): show once per browser session.
+  // Add a data-event-end date to the overlay to stop showing it after that date.
+  var splash = document.getElementById('treeSplash');
   if (splash) {
     var eventEnd = new Date(splash.getAttribute('data-event-end'));
     var eventPassed = !isNaN(eventEnd) && new Date() > eventEnd;
@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
     };
 
-    if (!eventPassed && !sessionStorage.getItem('ribbonCuttingSplashSeen')) {
+    if (!eventPassed && !sessionStorage.getItem('treeSponsorSplashSeen')) {
       // Wait 3 seconds after landing before showing the pop-up
       setTimeout(function () {
         splash.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('ribbonCuttingSplashSeen', '1');
+        sessionStorage.setItem('treeSponsorSplashSeen', '1');
       }, 3000);
     }
 
-    var splashCloseBtn = document.getElementById('ribbonSplashClose');
-    var splashDismissBtn = document.getElementById('ribbonSplashDismiss');
+    var splashCloseBtn = document.getElementById('treeSplashClose');
+    var splashDismissBtn = document.getElementById('treeSplashDismiss');
     if (splashCloseBtn) splashCloseBtn.addEventListener('click', closeSplash);
     if (splashDismissBtn) splashDismissBtn.addEventListener('click', closeSplash);
 
@@ -100,15 +100,24 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Deep links: #updates / #designs or #tab-past open the right tab
-    var hash = window.location.hash;
-    if (hash === '#tab-past') {
-      activateTab('past');
-    } else if (hash === '#vote' || hash === '#designs' || hash === '#updates') {
-      activateTab('new');
-      var target = document.getElementById(hash.slice(1));
-      if (target) setTimeout(function () { target.scrollIntoView(); }, 50);
-    }
+    // Deep links: #tab-<name> opens that tab; any other #id opens the tab
+    // containing it (e.g. #sponsor-a-tree, #designs, #updates) and scrolls to it
+    var openFromHash = function () {
+      var hash = window.location.hash;
+      if (hash.indexOf('#tab-') === 0) {
+        activateTab(hash.slice(5));
+      } else if (hash.length > 1) {
+        var target = document.getElementById(hash.slice(1));
+        var panel = target && target.closest('.project-panel');
+        if (panel) {
+          activateTab(panel.id.slice(4));
+          setTimeout(function () { target.scrollIntoView(); }, 50);
+        }
+      }
+    };
+    openFromHash();
+    // Also handle in-page links like <a href="#sponsor-a-tree"> that point into a hidden tab
+    window.addEventListener('hashchange', openFromHash);
   }
 
   // Show success message if form was submitted
