@@ -120,6 +120,41 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('hashchange', openFromHash);
   }
 
+  // Forms with data-success submit in the background and swap in a thank-you
+  // message (the element whose id is the data-success value) instead of
+  // leaving the site for Formspree's page
+  document.querySelectorAll('form[data-success]').forEach(function (form) {
+    var thanks = document.getElementById(form.getAttribute('data-success'));
+    var error = form.querySelector('.form-error');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var submitLabel = submitBtn.textContent;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (error) error.setAttribute('hidden', '');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (!res.ok) throw new Error('Form submission failed');
+        form.setAttribute('hidden', '');
+        var intro = form.parentNode.querySelectorAll(':scope > h3, :scope > .form-note');
+        intro.forEach(function (el) { el.setAttribute('hidden', ''); });
+        thanks.removeAttribute('hidden');
+        thanks.focus();
+        thanks.scrollIntoView({ block: 'center' });
+      }).catch(function () {
+        if (error) error.removeAttribute('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitLabel;
+      });
+    });
+  });
+
   // Show success message if form was submitted
   if (window.location.search.indexOf('submitted=true') !== -1) {
     var banner = document.createElement('div');

@@ -1163,6 +1163,35 @@ footer a {
   accent-color: var(--brass);
 }
 
+.form-error {
+  color: var(--brick);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.form-error[hidden],
+.form-thanks[hidden] {
+  display: none;
+}
+
+.form-thanks h3 {
+  color: var(--brick);
+}
+
+.form-thanks p,
+.form-thanks ul {
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.form-thanks ul {
+  margin-left: 22px;
+}
+
+.form-thanks li {
+  margin-bottom: 6px;
+}
+
 .req {
   color: var(--brick);
 }
