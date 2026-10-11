@@ -1,3 +1,8 @@
+// Tree sponsorship tracker: update TREES_SPONSORED as checks come in.
+// Every .tree-tracker on the site (pop-up, home page, Projects page) reads these.
+var TREE_GOAL = 14;
+var TREES_SPONSORED = 1;
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -38,6 +43,39 @@ document.addEventListener('DOMContentLoaded', function () {
       link.classList.add('active');
     }
   });
+
+  // Draw the tree tracker: one arborvitae per tree, green once sponsored
+  var trackers = document.querySelectorAll('.tree-tracker');
+  if (trackers.length) {
+    var sponsored = Math.max(0, Math.min(TREES_SPONSORED, TREE_GOAL));
+    var left = TREE_GOAL - sponsored;
+    var treeSvg = function (isSponsored, i) {
+      return '<svg class="tree-icon' + (isSponsored ? ' sponsored' : '') + '"' +
+        (isSponsored ? ' style="animation-delay:' + (i * 0.08) + 's"' : '') +
+        ' viewBox="0 0 24 48" aria-hidden="true" focusable="false">' +
+        '<rect class="trunk" x="10.5" y="41" width="3" height="7" rx="1"/>' +
+        '<path class="foliage" d="M12 1C8.5 7 5.5 15 5 25c-.4 7 1 12.5 3.2 15 1.2 1.3 2.4 1.8 3.8 1.8s2.6-.5 3.8-1.8C18 37.5 19.4 32 19 25 18.5 15 15.5 7 12 1z"/>' +
+        '<path class="shade" d="M12 6v33M9 14c1 2 2 3 3 3.5M15 14c-1 2-2 3-3 3.5M8 22c1.5 2.5 2.8 3.5 4 4M16 22c-1.5 2.5-2.8 3.5-4 4M8 31c1.5 2 2.8 3 4 3.5M16 31c-1.5 2-2.8 3-4 3.5"/>' +
+        '</svg>';
+    };
+    var rowHtml = '';
+    for (var t = 0; t < TREE_GOAL; t++) rowHtml += treeSvg(t < sponsored, t);
+
+    var note = left === 0
+      ? 'Every tree is sponsored. Thank you, Watseka!'
+      : left === 1
+        ? 'Just 1 tree left to sponsor!'
+        : left + ' trees left to sponsor. Help us plant before winter!';
+
+    trackers.forEach(function (el) {
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', sponsored + ' of ' + TREE_GOAL + ' trees sponsored');
+      el.innerHTML =
+        '<p class="tree-tracker-count"><strong>' + sponsored + '</strong> of ' + TREE_GOAL + ' trees sponsored</p>' +
+        '<p class="tree-tracker-note">' + note + '</p>' +
+        '<div class="tree-row">' + rowHtml + '</div>';
+    });
+  }
 
   // Sponsor a Tree pop-up (home page): show once per browser session.
   // Add a data-event-end date to the overlay to stop showing it after that date.

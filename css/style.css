@@ -21,6 +21,9 @@
   --linen: #EBE3D4;
   --line: #E0D8C8;
   --gray: #6B675E;
+  --evergreen: #3E6B3A;
+  --evergreen-dark: #2C4F2A;
+  --tree-empty: #D9D1C1;
 
   /* Legacy aliases kept so existing component rules adopt the new palette */
   --blue: var(--brass);
@@ -353,6 +356,133 @@ section:nth-child(even) {
   text-transform: uppercase;
   color: var(--brass-dark);
   margin-bottom: 8px;
+}
+
+/* ===== TREE SPONSORSHIP TRACKER ===== */
+.tree-tracker {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.tree-tracker:empty {
+  display: none;
+}
+
+.tree-tracker p.tree-tracker-count {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.tree-tracker-count strong {
+  color: var(--evergreen);
+}
+
+.tree-tracker p.tree-tracker-note {
+  font-size: 0.92rem;
+  color: var(--gray);
+  margin-bottom: 18px;
+}
+
+.tree-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tree-icon {
+  width: 34px;
+  height: 68px;
+  flex: 0 0 auto;
+}
+
+.tree-icon .foliage {
+  fill: var(--tree-empty);
+  transition: fill 0.5s ease;
+}
+
+.tree-icon .trunk {
+  fill: var(--tree-empty);
+  transition: fill 0.5s ease;
+}
+
+.tree-icon .shade {
+  fill: none;
+  stroke: rgba(43, 42, 38, 0.08);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.tree-icon.sponsored .foliage {
+  fill: var(--evergreen);
+}
+
+.tree-icon.sponsored .trunk {
+  fill: #7A5A3C;
+}
+
+.tree-icon.sponsored .shade {
+  stroke: var(--evergreen-dark);
+}
+
+.tree-icon.sponsored {
+  animation: tree-grow 0.6s cubic-bezier(0.2, 0.8, 0.3, 1.2) both;
+  transform-origin: bottom center;
+}
+
+@keyframes tree-grow {
+  from { transform: scaleY(0.6); opacity: 0.4; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+.tree-tracker-compact {
+  margin-bottom: 20px;
+}
+
+.tree-tracker-compact p.tree-tracker-count {
+  font-size: 1.1rem;
+}
+
+.tree-tracker-compact p.tree-tracker-note {
+  margin-bottom: 10px;
+}
+
+.tree-tracker-compact .tree-row {
+  gap: 3px;
+}
+
+.tree-tracker-compact .tree-icon {
+  width: 22px;
+  height: 44px;
+}
+
+.announcement .tree-tracker {
+  margin-bottom: 26px;
+}
+
+/* Keep all 13 trees on one row on phones */
+@media (max-width: 480px) {
+  .tree-row,
+  .tree-tracker-compact .tree-row {
+    flex-wrap: nowrap;
+    gap: 2px;
+  }
+
+  .tree-icon,
+  .tree-tracker-compact .tree-icon {
+    width: 20px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-icon.sponsored {
+    animation: none;
+  }
 }
 
 /* ===== ABOUT PAGE ===== */
