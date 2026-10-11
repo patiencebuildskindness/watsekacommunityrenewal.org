@@ -349,6 +349,12 @@ section:nth-child(even) {
   color: var(--ink-soft);
 }
 
+.announcement p.announcement-link {
+  margin: 20px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 .announcement p.announcement-eyebrow {
   font-size: 0.78rem;
   font-weight: 700;
@@ -980,6 +986,22 @@ footer a {
   box-shadow: 0 6px 18px rgba(43, 42, 38, 0.22);
 }
 
+.splash-art-figure {
+  margin: 0 0 18px;
+}
+
+.splash-art-figure .splash-art {
+  margin-bottom: 8px;
+}
+
+.splash-art-figure figcaption {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
 .splash-art img {
   display: block;
   width: 100%;
@@ -1160,6 +1182,28 @@ footer a {
   text-align: center;
   color: var(--ink-soft);
   margin-bottom: 30px;
+}
+
+.mural-video {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  scroll-margin-top: 120px;
+}
+
+.mural-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(43, 42, 38, 0.22);
+}
+
+.mural-video figcaption {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.92rem;
+  margin-top: 12px;
 }
 
 .mural-designs {
