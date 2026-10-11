@@ -81,8 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add a data-event-end date to the overlay to stop showing it after that date.
   var splash = document.getElementById('treeSplash');
   if (splash) {
-    var eventEnd = new Date(splash.getAttribute('data-event-end'));
-    var eventPassed = !isNaN(eventEnd) && new Date() > eventEnd;
+    // No data-event-end means the pop-up never expires (new Date(null) would be 1970)
+    var endAttr = splash.getAttribute('data-event-end');
+    var eventEnd = endAttr ? new Date(endAttr) : null;
+    var eventPassed = !!eventEnd && !isNaN(eventEnd) && new Date() > eventEnd;
 
     var closeSplash = function () {
       splash.setAttribute('hidden', '');
