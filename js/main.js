@@ -1,7 +1,7 @@
 // Tree sponsorship tracker: update TREES_SPONSORED as checks come in.
 // Every .tree-tracker on the site (pop-up, home page, Projects page) reads these.
 var TREE_GOAL = 14;
-var TREES_SPONSORED = 5;
+var TREES_SPONSORED = 10;
 
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
