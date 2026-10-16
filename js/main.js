@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
       ? 'Every tree is sponsored. Thank you, Watseka!'
       : left === 1
         ? 'Just 1 tree left to sponsor!'
-        : left + ' trees left to sponsor. Help us plant before winter!';
+        : left + ' trees left to sponsor. Every sponsorship helps!';
 
     trackers.forEach(function (el) {
       el.setAttribute('role', 'img');
