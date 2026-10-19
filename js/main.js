@@ -181,6 +181,18 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
         if (!res.ok) throw new Error('Form submission failed');
+        // Show the thank-you block that matches the chosen payment method
+        var pay = form.querySelector('input[name="Payment Method"]:checked');
+        if (pay) {
+          thanks.querySelectorAll('[data-pay]').forEach(function (block) {
+            if (block.getAttribute('data-pay') === pay.value) block.removeAttribute('hidden');
+          });
+          var signName = form.querySelector('input[name="Name on Sign"]');
+          var signNote = thanks.querySelector('.sign-note');
+          if (signNote && signName && signName.value.trim()) {
+            signNote.textContent = ', for example: Tree Sponsorship, ' + signName.value.trim();
+          }
+        }
         form.setAttribute('hidden', '');
         var intro = form.parentNode.querySelectorAll(':scope > h3, :scope > .form-note');
         intro.forEach(function (el) { el.setAttribute('hidden', ''); });
