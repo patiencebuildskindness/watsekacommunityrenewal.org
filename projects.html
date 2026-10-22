@@ -37,7 +37,7 @@
       <p class="section-subtitle">Community renewal efforts in Watseka</p>
 
       <div class="project-tabs" role="tablist">
-        <button class="project-tab active" role="tab" aria-selected="true" aria-controls="tab-trees" id="tabbtn-trees" data-tab="trees">Sponsor a Tree</button>
+        <button class="project-tab active" role="tab" aria-selected="true" aria-controls="tab-trees" id="tabbtn-trees" data-tab="trees">Mural Landscaping</button>
         <button class="project-tab" role="tab" aria-selected="false" aria-controls="tab-new" id="tabbtn-new" data-tab="new">Hubbard Trail Mural</button>
         <button class="project-tab" role="tab" aria-selected="false" aria-controls="tab-past" id="tabbtn-past" data-tab="past">Past Projects</button>
       </div>
@@ -47,118 +47,28 @@
 
         <div class="mural-intro" id="sponsor-a-tree">
           <p class="mural-eyebrow">Current Project: Mural Landscaping</p>
-          <h3 class="mural-title">Sponsor a Tree at the Hubbard Trail Mural</h3>
+          <h3 class="mural-title">Every Tree Is Sponsored!</h3>
           <p class="mural-location">Landscaping the mural site at <strong>203 E. Walnut Street</strong>, downtown Watseka</p>
-          <p>Thank you for supporting Watseka Community Renewal and our downtown beautification efforts! With <strong>&ldquo;Hubbard Trail: The Path That Built Watseka&rdquo;</strong> now on the wall, the next step is completing the landscaping around it. Funds raised through our <strong>Sponsor a Tree</strong> fundraiser go toward beautifying and landscaping the area surrounding the mural. <a href="#mural-video">Watch how the mural came to life</a>.</p>
+          <p>Thank you for supporting Watseka Community Renewal and our downtown beautification efforts! With <strong>&ldquo;Hubbard Trail: The Path That Built Watseka&rdquo;</strong> now on the wall, the next step is completing the landscaping around it. Thanks to our generous sponsors, all 14 trees in our <strong>Sponsor a Tree</strong> fundraiser have been sponsored, and the funds will go toward beautifying and landscaping the area surrounding the mural. <a href="#mural-video">Watch how the mural came to life</a>.</p>
         </div>
 
         <figure class="landscape-mockup">
           <img src="images/landscaping-mockup.jpg" alt="Mock-up of the planned landscaping at the Hubbard Trail mural: a row of arborvitae trees and a young shade tree along the wall, a river rock bed with flowering shrubs and ornamental grasses, a bench on a brick patio facing the mural, and fresh lawn beside the Walnut Street sidewalk." loading="lazy">
-          <figcaption>Landscaping mock-up: the row of arborvitae along the wall is what your sponsorship plants.</figcaption>
+          <figcaption>Landscaping mock-up: the row of arborvitae along the wall is what our sponsors are planting.</figcaption>
         </figure>
 
         <!-- Tree tracker: the count is set in js/main.js (TREES_SPONSORED) -->
         <div class="tree-tracker" id="tree-tracker"></div>
 
         <div class="mural-vote-banner">
-          <h3>$250 Sponsors a Tree</h3>
-          <p>Your name will be <strong>permanently listed on a recognition sign</strong> installed at the mural site in <strong>Spring 2027</strong>. Sponsor as an individual, a family, or a business. Please send in your sponsorship soon!</p>
-          <a href="#sponsor-form" class="btn btn-primary">Sponsor a Tree Online</a>
-        </div>
-
-        <!-- ===== ONLINE SPONSORSHIP FORM ===== -->
-        <div class="vote-form" id="sponsor-form">
-          <h3>Tree Sponsorship Form</h3>
-          <p class="form-note">Fill this out first so we know your sponsorship is coming. Then pay $250 online by card, or mail a check. Prefer paper? <a href="assets/WCR-Sponsor-a-Tree-Form.pdf" target="_blank" rel="noopener">Print the form instead</a>.</p>
-          <form action="https://formspree.io/f/xdeadwzz" method="POST" data-success="sponsor-thanks">
-            <input type="hidden" name="_subject" value="New Tree Sponsorship">
-            <input type="hidden" name="Form" value="Tree Sponsorship ($250)">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sponsor-name">Full Name <span class="req">*</span></label>
-                <input type="text" id="sponsor-name" name="Full Name" autocomplete="name" required>
-              </div>
-              <div class="form-group">
-                <label for="sponsor-business">Business / Organization <span class="optional">(if applicable)</span></label>
-                <input type="text" id="sponsor-business" name="Business / Organization" autocomplete="organization">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="sponsor-sign">Name to be listed on the sign <span class="req">*</span></label>
-              <input type="text" id="sponsor-sign" name="Name on Sign" required>
-            </div>
-
-            <div class="form-group">
-              <label for="sponsor-address">Mailing Address <span class="req">*</span></label>
-              <textarea id="sponsor-address" name="Mailing Address" rows="2" autocomplete="street-address" required></textarea>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sponsor-phone">Phone Number <span class="req">*</span></label>
-                <input type="tel" id="sponsor-phone" name="Phone" autocomplete="tel" required>
-              </div>
-              <div class="form-group">
-                <label for="sponsor-email">Email Address <span class="req">*</span></label>
-                <input type="email" id="sponsor-email" name="email" autocomplete="email" required>
-              </div>
-            </div>
-
-            <fieldset class="form-group pay-choice">
-              <legend>How will you pay? <span class="req">*</span></legend>
-              <label><input type="radio" name="Payment Method" value="Online (Community Foundation)" required> Online by credit or debit card</label>
-              <label><input type="radio" name="Payment Method" value="Check by mail"> Mail a check</label>
-            </fieldset>
-
-            <p class="form-note">If you pay online, the payment link will appear after you submit this form.</p>
-            <p class="form-error" role="alert" hidden>Sorry, something went wrong sending your form. Please try again, or call us at 847-867-9255.</p>
-
-            <div class="form-submit">
-              <button type="submit" class="btn btn-primary">Submit My Sponsorship</button>
-            </div>
-          </form>
-
-          <div class="form-thanks" id="sponsor-thanks" tabindex="-1" hidden>
-            <h3>Thank You for Sponsoring a Tree!</h3>
-            <div data-pay="Online (Community Foundation)" hidden>
-              <p>We&rsquo;ve received your information. <strong>One more step:</strong> make your $250 payment online.</p>
-              <p>Online gifts to WCR are processed by the <strong>Community Foundation of Kankakee River Valley</strong>. Their page is a general donation page and won&rsquo;t mention trees, but your gift goes straight to the Watseka Community Renewal fund. On their page:</p>
-              <ul>
-                <li><strong>Amount:</strong> $250.00</li>
-                <li><strong>Frequency:</strong> choose one-time</li>
-                <li><strong>Notes:</strong> type &ldquo;Tree Sponsorship&rdquo; and the name for the sign<span class="sign-note"></span></li>
-              </ul>
-              <p><a href="https://cfkankakee.fcsuite.com/erp/donate/create/fund?funit_id=2346" class="btn btn-primary" target="_blank" rel="noopener">Continue to Secure Payment</a></p>
-              <p>The payment page opens in a new tab. Questions? Call us at <a href="tel:+18478679255">847-867-9255</a>.</p>
-            </div>
-            <div data-pay="Check by mail" hidden>
-            <p>We&rsquo;ve received your information. To finish your sponsorship, please mail your check:</p>
-            <ul>
-              <li><strong>Amount:</strong> $250.00</li>
-              <li><strong>Payable to:</strong> Watseka Community Renewal</li>
-              <li><strong>Memo:</strong> Tree Sponsorship</li>
-              <li><strong>Mail to:</strong> Watseka Community Renewal, 103 W Cherry St, Watseka, IL 60970</li>
-            </ul>
-            </div>
-            <p>Thank you for helping us grow and beautify our community!</p>
-          </div>
+          <h3>Thank You to Our Sponsors</h3>
+          <p>Every sponsor will be <strong>permanently listed on a recognition sign</strong> installed at the mural site in <strong>Spring 2027</strong>. We are so grateful to everyone who helped grow and beautify our community!</p>
         </div>
 
         <div class="mural-info-grid">
           <div class="mural-info-card">
-            <h3>How to Sponsor</h3>
-            <ol>
-              <li><strong>Fill out the <a href="#sponsor-form">form above</a></strong> with your contact information and the name you&rsquo;d like listed on the sign.</li>
-              <li><strong>Pay online by card</strong> through the secure link that appears after you submit the form, with &ldquo;Tree Sponsorship&rdquo; in the notes.</li>
-              <li><strong>Or mail a $250 check</strong> payable to <strong>Watseka Community Renewal</strong>, with &ldquo;Tree Sponsorship&rdquo; in the memo, to 103 W Cherry St, Watseka, IL 60970.</li>
-            </ol>
-            <p>Prefer paper? <a href="assets/WCR-Sponsor-a-Tree-Form.pdf" target="_blank" rel="noopener">Print the sponsorship form</a> and mail it in with your check.</p>
-          </div>
-          <div class="mural-info-card">
             <h3>Questions?</h3>
-            <p>If you have any questions about the landscaping project or sponsorship details, call us at <strong><a href="tel:+18478679255">847-867-9255</a></strong> or email <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>.</p>
+            <p>If you have any questions about the landscaping project, call us at <strong><a href="tel:+18478679255">847-867-9255</a></strong> or email <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>.</p>
             <p>Thank you for helping us grow and beautify our community!</p>
           </div>
         </div>
@@ -172,13 +82,13 @@
           <p class="mural-eyebrow">Public Art Project</p>
           <h3 class="mural-title">Hubbard Trail: The Path That Built Watseka</h3>
           <p class="mural-location">A community mural at <strong>203 E. Walnut Street</strong>, downtown Watseka</p>
-          <p>Watseka Community Renewal is bringing a brand-new mural to downtown Watseka, celebrating the rich history and enduring spirit of our community. Centered on the theme <strong>&ldquo;Hubbard Trail: The Path That Built Watseka,&rdquo;</strong> the mural is a vibrant reminder of our shared heritage, and, true to our mission, it was built by the community. Residents chose the design, helped bring it to life, and helped pay for it. The mural was unveiled at <strong>203 E. Walnut Street</strong> on October 2, and we are now landscaping the space around it. <a href="#sponsor-a-tree">Sponsor a tree</a> to help finish the site.</p>
+          <p>Watseka Community Renewal is bringing a brand-new mural to downtown Watseka, celebrating the rich history and enduring spirit of our community. Centered on the theme <strong>&ldquo;Hubbard Trail: The Path That Built Watseka,&rdquo;</strong> the mural is a vibrant reminder of our shared heritage, and, true to our mission, it was built by the community. Residents chose the design, helped bring it to life, and helped pay for it. The mural was unveiled at <strong>203 E. Walnut Street</strong> on October 2, and we are now landscaping the space around it. Thanks to our sponsors, <a href="#sponsor-a-tree">every tree is sponsored</a>.</p>
         </div>
 
         <div class="mural-vote-banner">
           <h3>Next Up: Landscaping the Mural Site</h3>
-          <p>Thank you to everyone who joined us and the Watseka Area Chamber of Commerce for the ribbon cutting on October 2. Now we&rsquo;re finishing the space around the mural. Sponsor a tree for <strong>$250</strong> and your name will be listed on a recognition sign at the site.</p>
-          <a href="#sponsor-a-tree" class="btn btn-primary">Sponsor a Tree</a>
+          <p>Thank you to everyone who joined us and the Watseka Area Chamber of Commerce for the ribbon cutting on October 2. Now we&rsquo;re finishing the space around the mural, and all 14 trees have been sponsored. Sponsors will be listed on a recognition sign at the site.</p>
+          <a href="#sponsor-a-tree" class="btn btn-primary">See the Landscaping Plan</a>
         </div>
 
         <h3 class="mural-section-heading" id="designs">The Designs You Voted On</h3>
