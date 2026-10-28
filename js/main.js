@@ -9,15 +9,17 @@ var TREES_SPONSORED = 14;
 var PAVERS = [
 ];
 
-// Sample bricks, shown only when the page URL ends in ?paverdemo
-var PAVER_DEMO = [
-  ['THE SMITH FAMILY', 'WATSEKA, IL'],
-  ['IN LOVING MEMORY OF', 'JOHN AND JANE DOE', '1942 - 2019'],
+// Sample inscriptions that fill out the wall until enough real bricks are
+// in. They are drawn lighter and labeled as examples, and real bricks
+// replace them one by one as they're added above.
+var PAVER_EXAMPLES = [
+  ['IN LOVING MEMORY OF', 'SOMEONE SPECIAL'],
+  ['YOUR FAMILY NAME', 'WATSEKA, IL'],
   ['GO WARRIORS!'],
-  ['MARY & TOM', 'MARRIED 1988'],
-  ['WATSEKA', 'CLASS OF 1975'],
-  ['FOR GRANDMA ROSE', 'WITH LOVE'],
-  ['THE JOHNSONS'],
+  ['CELEBRATING', 'A SPECIAL DAY'],
+  ['YOUR BUSINESS', 'PROUD SUPPORTER'],
+  ['FOR GRANDMA', 'WITH LOVE'],
+  ['CLASS OF 19__'],
   ['HUBBARD TRAIL', 'FOREVER']
 ];
 
@@ -95,15 +97,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Draw the paver wall: running-bond rows of bricks, engraved ones first,
-  // then blank bricks waiting for a name. The wall always shows a few blanks.
+  // Draw the paver walls: running-bond rows of bricks, real engraved bricks
+  // first, then sample inscriptions (until there are 8 real ones), then a few
+  // blank bricks waiting for a name. A wall's data-per-row sets bricks per row.
   var walls = document.querySelectorAll('.paver-wall');
   if (walls.length) {
-    var pavers = /[?&]paverdemo\b/.test(window.location.search) ? PAVER_DEMO : PAVERS;
-    // Show every engraved brick plus at least 3 blanks, and at least 4 rows.
-    // Phones get 2 bricks per row so a full 20-character line stays readable.
-    var wide = window.matchMedia('(min-width: 560px)').matches ? 3 : 2;
-    var needed = pavers.length + 3;
+    var examples = PAVER_EXAMPLES.slice(0, Math.max(0, PAVER_EXAMPLES.length - PAVERS.length));
+    var filled = PAVERS.concat(examples);
+    var needed = filled.length + 2;
     var escapeHtml = function (text) {
       return String(text).replace(/[&<>"']/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -111,40 +112,71 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     var brick = function (i) {
       var delay = 'animation-delay:' + (i * 0.06).toFixed(2) + 's';
-      var lines = pavers[i];
+      var lines = filled[i];
       if (lines) {
+        var isExample = i >= PAVERS.length;
         var text = lines.map(function (line) {
           return '<span>' + escapeHtml(line) + '</span>';
         }).join('');
-        return '<div class="paver engraved" style="' + delay + '">' +
+        return '<div class="paver engraved' + (isExample ? ' example' : '') + '" style="' + delay + '"' +
+          (isExample ? ' aria-hidden="true"' : ' data-search="' + escapeHtml(lines.join(' ').toLowerCase()) + '"') + '>' +
           '<div class="paver-text" style="animation-delay:' + (0.6 + i * 0.12).toFixed(2) + 's">' + text + '</div></div>';
       }
-      var invite = i === pavers.length ? '<div class="paver-text paver-invite"><span>Your name</span><span>here?</span></div>' : '';
+      var invite = i === filled.length ? '<div class="paver-text paver-invite"><span>Your name</span><span>here?</span></div>' : '';
       return '<div class="paver" style="' + delay + '" aria-hidden="true">' + invite + '</div>';
     };
-    // Running bond: rows alternate full bricks and half + one fewer + half
-    var html = '';
-    var placed = 0;
-    for (var r = 0; placed < needed || r < 4; r++) {
-      var offset = r % 2 === 1;
-      var perRow = offset ? wide - 1 : wide;
-      html += '<div class="paver-row">';
-      if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
-      for (var b = 0; b < perRow; b++) html += brick(placed++);
-      if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
-      html += '</div>';
-    }
-    var countText = pavers.length === 0
-      ? 'Be the first name on the wall!'
-      : pavers.length === 1 ? '1 paver engraved so far' : pavers.length + ' pavers engraved so far';
+    var countText = PAVERS.length === 0
+      ? 'Sample inscriptions shown. Be the first name on the wall!'
+      : (PAVERS.length === 1 ? '1 brick engraved so far' : PAVERS.length + ' bricks engraved so far') +
+        (examples.length ? '. Lighter bricks show sample inscriptions.' : '');
+
     walls.forEach(function (wall) {
+      // Phones get 2 bricks per row so a full 20-character line stays readable
+      var wide = window.matchMedia('(min-width: 560px)').matches
+        ? parseInt(wall.getAttribute('data-per-row'), 10) || 3
+        : 2;
+      // Running bond: rows alternate full bricks and half + one fewer + half
+      var html = '';
+      var placed = 0;
+      for (var r = 0; placed < needed || r < 4; r++) {
+        var offset = r % 2 === 1;
+        var perRow = offset ? wide - 1 : wide;
+        html += '<div class="paver-row">';
+        if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
+        for (var b = 0; b < perRow; b++) html += brick(placed++);
+        if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
+        html += '</div>';
+      }
       wall.setAttribute('role', 'img');
-      wall.setAttribute('aria-label', pavers.length
-        ? 'Virtual paver wall with ' + pavers.length + ' engraved bricks: ' + pavers.map(function (l) { return l.join(' '); }).join('; ')
-        : 'Virtual paver wall of blank bricks waiting to be engraved');
+      wall.setAttribute('aria-label', PAVERS.length
+        ? 'Virtual paver wall with ' + PAVERS.length + ' engraved bricks: ' + PAVERS.map(function (l) { return l.join(' '); }).join('; ')
+        : 'Virtual paver wall showing sample inscriptions, waiting for the first engraved brick');
       wall.innerHTML = '<div class="paver-bricks">' + html + '</div>' +
         '<p class="paver-count">' + countText + '</p>';
     });
+
+    // Paver Wall page: search the engraved bricks for a name
+    var search = document.getElementById('paver-search');
+    var searchResult = document.getElementById('paver-search-result');
+    if (search) {
+      search.addEventListener('input', function () {
+        var term = search.value.trim().toLowerCase();
+        var found = 0;
+        document.querySelectorAll('.paver-wall .paver').forEach(function (el) {
+          var match = !!term && (el.getAttribute('data-search') || '').indexOf(term) !== -1;
+          if (match) found++;
+          el.classList.toggle('match', match);
+          el.classList.toggle('dimmed', !!term && !match);
+        });
+        if (searchResult) {
+          searchResult.textContent = !term ? ''
+            : found === 0 ? 'No bricks match "' + search.value.trim() + '" yet.'
+              : found === 1 ? '1 brick found.' : found + ' bricks found.';
+        }
+        var first = document.querySelector('.paver-wall .paver.match');
+        if (first) first.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      });
+    }
   }
 
   // Paver order form: live brick preview and characters-left counters

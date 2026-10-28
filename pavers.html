@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paver Wall - Watseka Community Renewal</title>
+  <meta name="description" content="See every engraved brick paver at the Hubbard Trail mural, and find your name on the Watseka Community Renewal paver wall.">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="header-logo">
+        <img src="images/logo.jpg" alt="Watseka Community Renewal">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="grants.html">Grants</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">The Paver Wall</h2>
+      <p class="section-subtitle">Every engraved brick for the Hubbard Trail mural site</p>
+
+      <div class="paver-page-cta">
+        <p>Thank you to everyone leaving their mark on Watseka! Each brick below is a <strong>4&quot; x 8&quot; engraved paver</strong> that will be installed at the Hubbard Trail mural, 203 E. Walnut St., in <strong>Spring 2027</strong>. New names are added as orders are paid.</p>
+        <a href="projects.html#buy-a-paver" class="btn btn-primary">Order a Brick: $125</a>
+      </div>
+
+      <div class="paver-search">
+        <label for="paver-search">Find your brick</label>
+        <input type="search" id="paver-search" placeholder="Type a name or word" autocomplete="off">
+        <p class="paver-search-result" id="paver-search-result" aria-live="polite"></p>
+      </div>
+
+      <!-- Paver wall: names are listed in js/main.js (PAVERS) -->
+      <div class="paver-wall paver-wall-full" data-per-row="4"></div>
+
+      <div class="mural-info-grid">
+        <div class="mural-info-card">
+          <h3>Don&rsquo;t See Your Brick?</h3>
+          <p>Bricks are added once payment is received, so it may take a few days for a new order to appear. Still missing? Call us at <strong><a href="tel:+18478679255">847-867-9255</a></strong> or email <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>.</p>
+        </div>
+        <div class="mural-info-card">
+          <h3>Order a Brick</h3>
+          <p>Commemorate a loved one, celebrate a special occasion, or showcase your family name. Up to 3 lines, 20 characters each, for $125. <a href="projects.html#buy-a-paver">Fill out the order form</a> and pay online or by check.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Watseka Community Renewal, a 501(c)(3) Nonprofit Organization</p>
+    <p><a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a></p>
+    <p>&copy; 2026 Watseka Community Renewal. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

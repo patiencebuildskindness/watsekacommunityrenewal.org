@@ -1196,6 +1196,87 @@ footer a {
   color: var(--gray);
 }
 
+/* Sample inscriptions: lighter, so they read as examples next to real bricks */
+.paver.example .paver-text {
+  color: rgba(74, 27, 18, 0.8);
+  text-shadow: 0 1px 0 rgba(255, 220, 200, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.paver.example::after {
+  display: none;
+}
+
+/* Paver Wall page search */
+/* filter, not opacity: the drop-in animation holds opacity at 1 */
+.paver.dimmed {
+  filter: grayscale(0.7) brightness(0.55) !important;
+  transition: filter 0.2s;
+}
+
+.paver.match {
+  outline: 3px solid var(--brass-light);
+  outline-offset: -3px;
+  box-shadow: 0 0 0 3px rgba(194, 167, 102, 0.45), 0 6px 16px rgba(43, 42, 38, 0.35);
+  z-index: 1;
+}
+
+.paver-search {
+  max-width: 420px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.paver-search label {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.paver-search input {
+  width: 100%;
+  padding: 12px 16px;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--white);
+}
+
+.paver-search-result {
+  min-height: 1.5em;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.paver-wall-full {
+  max-width: 960px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.paver-wall-full .paver-bricks {
+  max-height: none;
+  overflow: visible;
+}
+
+.paver-page-cta {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.paver-page-cta p {
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.splash-link {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
 /* Paver wall on the Projects page and the order form's brick preview */
 .paver-wall-page {
   max-width: 720px;
