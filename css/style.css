@@ -1143,7 +1143,6 @@ footer a {
   font-size: 6.6cqw;
   line-height: 1.15;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
   white-space: nowrap;
   color: #4A1B12;
   /* light edge below each letter makes it look cut into the brick */
@@ -1323,7 +1322,6 @@ footer a {
 }
 
 .paver-line {
-  text-transform: uppercase;
   font-family: 'Lora', Georgia, serif;
   letter-spacing: 0.04em;
 }

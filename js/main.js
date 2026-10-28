@@ -4,7 +4,8 @@ var TREE_GOAL = 14;
 var TREES_SPONSORED = 14;
 
 // Engraved paver wall: add each paid paver here, one string per engraved line
-// (up to 3 lines, 20 characters each), and it appears on a brick in the home
+// (up to 3 lines, 20 characters each), typed exactly as it should be
+// engraved (upper and lower case both work), and it appears on a brick in the home
 // page pop-up. Example: ['THE SMITH FAMILY', 'WATSEKA', 'EST. 1965'],
 var PAVERS = [
 ];
@@ -13,14 +14,14 @@ var PAVERS = [
 // in. They are drawn lighter and labeled as examples, and real bricks
 // replace them one by one as they're added above.
 var PAVER_EXAMPLES = [
-  ['IN LOVING MEMORY OF', 'SOMEONE SPECIAL'],
-  ['YOUR FAMILY NAME', 'WATSEKA, IL'],
+  ['In Loving Memory of', 'Someone Special'],
+  ['Your Family Name', 'Watseka, IL'],
   ['GO WARRIORS!'],
-  ['CELEBRATING', 'A SPECIAL DAY'],
+  ['Celebrating', 'A Special Day'],
   ['YOUR BUSINESS', 'PROUD SUPPORTER'],
-  ['FOR GRANDMA', 'WITH LOVE'],
-  ['CLASS OF 19__'],
-  ['HUBBARD TRAIL', 'FOREVER']
+  ['For Grandma', 'With Love'],
+  ['Class of 19__'],
+  ['Hubbard Trail', 'Forever']
 ];
 
 // Mobile nav toggle
@@ -187,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
       previewText.innerHTML = '';
       var any = false;
       paverLines.forEach(function (input) {
-        var value = input.value.trim().toUpperCase();
+        var value = input.value.trim();
         var count = document.querySelector('.char-count[data-for="' + input.id + '"]');
         if (count) {
           var left = input.maxLength - input.value.length;
@@ -201,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
           previewText.appendChild(span);
         }
       });
-      if (!any) previewText.innerHTML = '<span>Your</span><span>inscription</span><span>here</span>';
+      if (!any) previewText.innerHTML = '<span>Your</span><span>Inscription</span><span>Here</span>';
       previewText.classList.toggle('placeholder', !any);
     };
     paverLines.forEach(function (input) { input.addEventListener('input', updatePreview); });
