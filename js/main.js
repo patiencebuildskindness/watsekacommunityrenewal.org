@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
           (isExample ? ' aria-hidden="true"' : ' data-search="' + escapeHtml(lines.join(' ').toLowerCase()) + '"') + '>' +
           '<div class="paver-text" style="animation-delay:' + (0.6 + i * 0.12).toFixed(2) + 's">' + text + '</div></div>';
       }
-      var invite = i === filled.length ? '<div class="paver-text paver-invite"><span>Your name</span><span>here?</span></div>' : '';
+      var invite = i === filled.length ? '<div class="paver-text paver-invite"><span>Your Name</span><span>Here?</span></div>' : '';
       return '<div class="paver" style="' + delay + '" aria-hidden="true">' + invite + '</div>';
     };
     var countText = PAVERS.length === 0
