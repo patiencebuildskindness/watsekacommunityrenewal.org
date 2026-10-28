@@ -71,7 +71,7 @@
         <!-- ===== ONLINE PAVER ORDER FORM ===== -->
         <div class="vote-form" id="paver-form">
           <h3>Engraved Brick Order Form</h3>
-          <p class="form-note">Fill this out first so we know exactly what to engrave. Then pay $125 online by card, or mail a check. Please use one form per brick. Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf" target="_blank" rel="noopener">Print the order form instead</a>.</p>
+          <p class="form-note">Fill this out first so we know exactly what to engrave. Then pay by check or online by card ($125), or by PayPal ($130). Please use one form per brick. Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf" target="_blank" rel="noopener">Print the order form instead</a>.</p>
           <form action="https://formspree.io/f/xjyyrzva" method="POST" data-success="paver-thanks">
             <input type="hidden" name="_subject" value="New Engraved Brick Order">
             <input type="hidden" name="Form" value="Engraved Brick 4x8 ($125)">
@@ -131,12 +131,17 @@
             <h4 class="form-step">Step 3: Payment</h4>
             <fieldset class="form-group pay-choice">
               <legend>How will you pay? <span class="req">*</span></legend>
-              <label><input type="radio" name="Payment Method" value="Online (Community Foundation)" required> Online by credit or debit card</label>
-              <label><input type="radio" name="Payment Method" value="Check by mail"> Mail a check</label>
+              <label><input type="radio" name="Payment Method" value="Check by mail ($125)" required> Mail a check: <strong>$125</strong></label>
+              <label><input type="radio" name="Payment Method" value="Online card, Community Foundation ($125)"> Online by credit or debit card: <strong>$125</strong></label>
+              <label><input type="radio" name="Payment Method" value="PayPal ($130)"> PayPal: <strong>$130</strong> <span class="optional">(includes the PayPal fee)</span></label>
             </fieldset>
 
-            <p class="form-note">If you pay online, the payment link will appear after you submit this form.</p>
-            <p class="form-error" role="alert" hidden>Sorry, something went wrong sending your form. Please try again, or call us at 847-867-9255.</p>
+            <div class="form-group form-checkbox">
+              <label><input type="checkbox" name="Gift Receipt Requested" value="Yes"> Please send me a gift receipt.</label>
+            </div>
+
+            <p class="form-note">Payment instructions will appear after you submit this form.</p>
+            <p class="form-error" role="alert" hidden>Sorry, something went wrong sending your form. Please try again, or call Helen Gerber at 815-383-3361.</p>
 
             <div class="form-submit">
               <button type="submit" class="btn btn-primary">Submit My Brick Order</button>
@@ -145,7 +150,7 @@
 
           <div class="form-thanks" id="paver-thanks" tabindex="-1" hidden>
             <h3>Thank You for Ordering a Brick!</h3>
-            <div data-pay="Online (Community Foundation)" hidden>
+            <div data-pay="Online card, Community Foundation ($125)" hidden>
               <p>We&rsquo;ve received your order. <strong>One more step:</strong> make your $125 payment online.</p>
               <p>Online gifts to WCR are processed by the <strong>Community Foundation of Kankakee River Valley</strong>. Their page is a general donation page and won&rsquo;t mention bricks, but your payment goes straight to the Watseka Community Renewal fund. On their page:</p>
               <ul>
@@ -154,9 +159,18 @@
                 <li><strong>Notes:</strong> type &ldquo;Engraved Brick&rdquo; and the first line of your inscription<span class="sign-note" data-prefix="Engraved Brick"></span></li>
               </ul>
               <p><a href="https://cfkankakee.fcsuite.com/erp/donate/create/fund?funit_id=2346" class="btn btn-primary" target="_blank" rel="noopener">Continue to Secure Payment</a></p>
-              <p>The payment page opens in a new tab. Questions? Call us at <a href="tel:+18478679255">847-867-9255</a>.</p>
+              <p>The payment page opens in a new tab. Questions? Call Helen Gerber at <a href="tel:+18153833361">815-383-3361</a>.</p>
             </div>
-            <div data-pay="Check by mail" hidden>
+            <div data-pay="PayPal ($130)" hidden>
+              <p>We&rsquo;ve received your order. <strong>One more step:</strong> send your $130 payment through PayPal.</p>
+              <ul>
+                <li><strong>Amount:</strong> $130.00 (includes the PayPal fee)</li>
+                <li><strong>Send to:</strong> Watseka Community Renewal</li>
+                <li><strong>Note:</strong> type &ldquo;Engraved Brick&rdquo; and the first line of your inscription</li>
+              </ul>
+              <p>Questions? Call Helen Gerber at <a href="tel:+18153833361">815-383-3361</a>.</p>
+            </div>
+            <div data-pay="Check by mail ($125)" hidden>
               <p>We&rsquo;ve received your order. To finish it, please mail your check:</p>
               <ul>
                 <li><strong>Amount:</strong> $125.00</li>
@@ -165,7 +179,7 @@
                 <li><strong>Mail to:</strong> Watseka Community Renewal, 103 W Cherry St, Watseka, IL 60970</li>
               </ul>
             </div>
-            <p>Once your payment arrives, your brick will join our <a href="index.html">virtual paver wall</a>. Thank you for leaving your mark on Watseka!</p>
+            <p>Once your payment arrives, your brick will join our <a href="pavers.html">Paver Wall</a>. Thank you for leaving your mark on Watseka!</p>
           </div>
         </div>
 
@@ -174,17 +188,19 @@
             <h3>How to Order a Brick</h3>
             <ol>
               <li><strong>Fill out the <a href="#paver-form">form above</a></strong> with your contact information and inscription (one form per brick).</li>
-              <li><strong>Pay online by card</strong> through the secure link that appears after you submit the form, with &ldquo;Engraved Brick&rdquo; in the notes.</li>
-              <li><strong>Or mail a $125 check</strong> payable to <strong>Watseka Community Renewal</strong>, with &ldquo;Engraved Brick&rdquo; in the memo, to 103 W Cherry St, Watseka, IL 60970.</li>
+              <li><strong>Mail a $125 check</strong> payable to <strong>Watseka Community Renewal</strong>, with &ldquo;Engraved Brick&rdquo; in the memo, to 103 W Cherry St, Watseka, IL 60970.</li>
+              <li><strong>Or pay online by card ($125)</strong> through the secure link that appears after you submit the form, with &ldquo;Engraved Brick&rdquo; in the notes.</li>
+              <li><strong>Or pay by PayPal ($130)</strong> to Watseka Community Renewal. The extra $5 covers the PayPal fee.</li>
             </ol>
-            <p>Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf" target="_blank" rel="noopener">Print the order form</a> and mail it in with your check, or email it to <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>.</p>
+            <p>Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf" target="_blank" rel="noopener">Print the order form</a> and mail it in with your check, or email it to <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>. Questions? Call Helen Gerber at <a href="tel:+18153833361">815-383-3361</a>.</p>
           </div>
           <div class="mural-info-card">
             <h3>Brick Details</h3>
             <ul>
               <li><strong>Size:</strong> 4&quot; x 8&quot; engraved brick</li>
-              <li><strong>Price:</strong> $125 per brick, of which $95 is tax-deductible</li>
-              <li><strong>Engraving:</strong> up to 3 lines, 20 characters per line, centered</li>
+              <li><strong>Price:</strong> $125 by check or online card, $130 by PayPal (covers the PayPal fee)</li>
+              <li><strong>Gift receipt:</strong> available on request</li>
+              <li><strong>Engraving:</strong> up to 3 lines, 20 characters per line, centered, with a lifetime engraving guarantee from the manufacturer</li>
               <li><strong>Installed:</strong> Spring 2027 at the Hubbard Trail mural site, 203 E. Walnut St.</li>
             </ul>
           </div>
