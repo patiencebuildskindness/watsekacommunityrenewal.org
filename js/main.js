@@ -223,12 +223,17 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
     };
 
-    if (!eventPassed && !sessionStorage.getItem('paverSplashSeen')) {
+    // Session storage can be blocked (private browsing, embedded previews);
+    // if so, just show the pop-up instead of stopping the rest of the script
+    var splashSeen = false;
+    try { splashSeen = !!sessionStorage.getItem('paverSplashSeen'); } catch (err) {}
+
+    if (!eventPassed && !splashSeen) {
       // Wait 3 seconds after landing before showing the pop-up
       setTimeout(function () {
         splash.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('paverSplashSeen', '1');
+        try { sessionStorage.setItem('paverSplashSeen', '1'); } catch (err) {}
       }, 3000);
     }
 
