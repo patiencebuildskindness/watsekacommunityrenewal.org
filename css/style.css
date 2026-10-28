@@ -123,8 +123,17 @@ nav a {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
+}
+
+/* Seven menu items: tighten spacing on narrower desktop screens */
+@media (max-width: 1000px) and (min-width: 769px) {
+  nav a {
+    padding: 8px 9px;
+    letter-spacing: 0.05em;
+  }
 }
 
 nav a:hover,
