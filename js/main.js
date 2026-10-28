@@ -3,6 +3,24 @@
 var TREE_GOAL = 14;
 var TREES_SPONSORED = 14;
 
+// Engraved paver wall: add each paid paver here, one string per engraved line
+// (up to 3 lines, 20 characters each), and it appears on a brick in the home
+// page pop-up. Example: ['THE SMITH FAMILY', 'WATSEKA', 'EST. 1965'],
+var PAVERS = [
+];
+
+// Sample bricks, shown only when the page URL ends in ?paverdemo
+var PAVER_DEMO = [
+  ['THE SMITH FAMILY', 'WATSEKA, IL'],
+  ['IN LOVING MEMORY OF', 'JOHN AND JANE DOE', '1942 - 2019'],
+  ['GO WARRIORS!'],
+  ['MARY & TOM', 'MARRIED 1988'],
+  ['WATSEKA', 'CLASS OF 1975'],
+  ['FOR GRANDMA ROSE', 'WITH LOVE'],
+  ['THE JOHNSONS'],
+  ['HUBBARD TRAIL', 'FOREVER']
+];
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -77,9 +95,90 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Sponsor a Tree pop-up (home page): show once per browser session.
+  // Draw the paver wall: running-bond rows of bricks, engraved ones first,
+  // then blank bricks waiting for a name. The wall always shows a few blanks.
+  var walls = document.querySelectorAll('.paver-wall');
+  if (walls.length) {
+    var pavers = /[?&]paverdemo\b/.test(window.location.search) ? PAVER_DEMO : PAVERS;
+    // Show every engraved brick plus at least 3 blanks, and at least 4 rows.
+    // Phones get 2 bricks per row so a full 20-character line stays readable.
+    var wide = window.matchMedia('(min-width: 560px)').matches ? 3 : 2;
+    var needed = pavers.length + 3;
+    var escapeHtml = function (text) {
+      return String(text).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    };
+    var brick = function (i) {
+      var delay = 'animation-delay:' + (i * 0.06).toFixed(2) + 's';
+      var lines = pavers[i];
+      if (lines) {
+        var text = lines.map(function (line) {
+          return '<span>' + escapeHtml(line) + '</span>';
+        }).join('');
+        return '<div class="paver engraved" style="' + delay + '">' +
+          '<div class="paver-text" style="animation-delay:' + (0.6 + i * 0.12).toFixed(2) + 's">' + text + '</div></div>';
+      }
+      var invite = i === pavers.length ? '<div class="paver-text paver-invite"><span>Your name</span><span>here?</span></div>' : '';
+      return '<div class="paver" style="' + delay + '" aria-hidden="true">' + invite + '</div>';
+    };
+    // Running bond: rows alternate full bricks and half + one fewer + half
+    var html = '';
+    var placed = 0;
+    for (var r = 0; placed < needed || r < 4; r++) {
+      var offset = r % 2 === 1;
+      var perRow = offset ? wide - 1 : wide;
+      html += '<div class="paver-row">';
+      if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
+      for (var b = 0; b < perRow; b++) html += brick(placed++);
+      if (offset) html += '<div class="paver half" aria-hidden="true"></div>';
+      html += '</div>';
+    }
+    var countText = pavers.length === 0
+      ? 'Be the first name on the wall!'
+      : pavers.length === 1 ? '1 paver engraved so far' : pavers.length + ' pavers engraved so far';
+    walls.forEach(function (wall) {
+      wall.setAttribute('role', 'img');
+      wall.setAttribute('aria-label', pavers.length
+        ? 'Virtual paver wall with ' + pavers.length + ' engraved bricks: ' + pavers.map(function (l) { return l.join(' '); }).join('; ')
+        : 'Virtual paver wall of blank bricks waiting to be engraved');
+      wall.innerHTML = '<div class="paver-bricks">' + html + '</div>' +
+        '<p class="paver-count">' + countText + '</p>';
+    });
+  }
+
+  // Paver order form: live brick preview and characters-left counters
+  var previewText = document.querySelector('.paver-preview .paver-text');
+  var paverLines = document.querySelectorAll('.paver-line');
+  if (previewText && paverLines.length) {
+    var updatePreview = function () {
+      previewText.innerHTML = '';
+      var any = false;
+      paverLines.forEach(function (input) {
+        var value = input.value.trim().toUpperCase();
+        var count = document.querySelector('.char-count[data-for="' + input.id + '"]');
+        if (count) {
+          var left = input.maxLength - input.value.length;
+          count.textContent = left + (left === 1 ? ' character left' : ' characters left');
+          count.classList.toggle('low', left <= 3);
+        }
+        if (value) {
+          any = true;
+          var span = document.createElement('span');
+          span.textContent = value;
+          previewText.appendChild(span);
+        }
+      });
+      if (!any) previewText.innerHTML = '<span>Your</span><span>inscription</span><span>here</span>';
+      previewText.classList.toggle('placeholder', !any);
+    };
+    paverLines.forEach(function (input) { input.addEventListener('input', updatePreview); });
+    updatePreview();
+  }
+
+  // Engraved paver pop-up (home page): show once per browser session.
   // Add a data-event-end date to the overlay to stop showing it after that date.
-  var splash = document.getElementById('treeSplash');
+  var splash = document.getElementById('paverSplash');
   if (splash) {
     // No data-event-end means the pop-up never expires (new Date(null) would be 1970)
     var endAttr = splash.getAttribute('data-event-end');
@@ -91,17 +190,17 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
     };
 
-    if (!eventPassed && !sessionStorage.getItem('treeSponsorSplashSeen')) {
+    if (!eventPassed && !sessionStorage.getItem('paverSplashSeen')) {
       // Wait 3 seconds after landing before showing the pop-up
       setTimeout(function () {
         splash.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('treeSponsorSplashSeen', '1');
+        sessionStorage.setItem('paverSplashSeen', '1');
       }, 3000);
     }
 
-    var splashCloseBtn = document.getElementById('treeSplashClose');
-    var splashDismissBtn = document.getElementById('treeSplashDismiss');
+    var splashCloseBtn = document.getElementById('paverSplashClose');
+    var splashDismissBtn = document.getElementById('paverSplashDismiss');
     if (splashCloseBtn) splashCloseBtn.addEventListener('click', closeSplash);
     if (splashDismissBtn) splashDismissBtn.addEventListener('click', closeSplash);
 
@@ -187,10 +286,11 @@ document.addEventListener('DOMContentLoaded', function () {
           thanks.querySelectorAll('[data-pay]').forEach(function (block) {
             if (block.getAttribute('data-pay') === pay.value) block.removeAttribute('hidden');
           });
-          var signName = form.querySelector('input[name="Name on Sign"]');
+          // Suggest a payment note, e.g. "Engraved Brick, THE SMITH FAMILY"
+          var signName = form.querySelector('input[name="Name on Sign"], input[name="Line 1"]');
           var signNote = thanks.querySelector('.sign-note');
           if (signNote && signName && signName.value.trim()) {
-            signNote.textContent = ', for example: Tree Sponsorship, ' + signName.value.trim();
+            signNote.textContent = ', for example: ' + (signNote.getAttribute('data-prefix') || 'Tree Sponsorship') + ', ' + signName.value.trim();
           }
         }
         form.setAttribute('hidden', '');
