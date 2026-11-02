@@ -318,6 +318,17 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
         if (!res.ok) throw new Error('Form submission failed');
+        // Once Formspree has the order, forms with data-sheet also send a
+        // copy to the Google Sheet's script, which adds a row to the order
+        // sheet. A failure here never blocks the order or the thank-you.
+        var sheetUrl = form.getAttribute('data-sheet');
+        if (sheetUrl) {
+          fetch(sheetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams(new FormData(form))
+          }).catch(function () {});
+        }
         // Show the thank-you block that matches the chosen payment method
         var pay = form.querySelector('input[name="Payment Method"]:checked');
         if (pay) {
