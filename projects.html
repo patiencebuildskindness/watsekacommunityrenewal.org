@@ -72,7 +72,7 @@
         <!-- ===== ONLINE PAVER ORDER FORM ===== -->
         <div class="vote-form" id="paver-form">
           <h3>Engraved Brick Order Form</h3>
-          <p class="form-note">Fill this out first so we know exactly what to engrave. Then pay $125 by check or online by card. Please use one form per brick. Orders must be received by <strong>January 31, 2027</strong>. Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf?v=2026-10-29" target="_blank" rel="noopener">Print the order form instead</a>.</p>
+          <p class="form-note">Fill this out first so we know exactly what to engrave. Then pay $125 by check or online by card. Please use one form per brick. Orders must be received by <strong>January 31, 2027</strong>. Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf?v=2026-11-03" target="_blank" rel="noopener">Print the order form instead</a>.</p>
           <form action="https://formspree.io/f/xjyyrzva" method="POST" data-success="paver-thanks" data-sheet="https://script.google.com/macros/s/AKfycbxHJVniH98nYc0mC2EdYmgUZKAV42YjeiMZpCNMBtkSOYMboUaxbacthTGEXxXmQMNg/exec">
             <input type="hidden" name="_subject" value="New Engraved Brick Order">
             <input type="hidden" name="Form" value="Engraved Brick 4x8 ($125)">
@@ -137,7 +137,12 @@
             </fieldset>
 
             <div class="form-group form-checkbox">
-              <label><input type="checkbox" name="Gift Receipt Requested" value="Yes"> Please send me a gift receipt.</label>
+              <label><input type="checkbox" name="Gift Receipt Requested" value="Yes"> This brick is a gift. Please email me a gift certificate to give.</label>
+            </div>
+
+            <div class="form-group">
+              <label for="paver-recipient">Gift recipient&rsquo;s name <span class="optional">(only if this brick is a gift)</span></label>
+              <input type="text" id="paver-recipient" name="Gift Recipient" maxlength="60" placeholder="As it should appear on the certificate">
             </div>
 
             <p class="form-note">Payment instructions will appear after you submit this form.</p>
@@ -177,7 +182,7 @@
               <li><strong>Pay online by card</strong> through the secure brick payment link that appears after you submit the form.</li>
               <li><strong>Or mail a $125 check</strong> payable to <strong>Watseka Community Renewal</strong>, with &ldquo;Engraved Brick&rdquo; in the memo, to 103 W Cherry St, Watseka, IL 60970.</li>
             </ol>
-            <p>Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf?v=2026-10-29" target="_blank" rel="noopener">Print the order form</a> and mail it in with your check, or email it to <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>. Questions? Call Helen Gerber at <a href="tel:+18153833361">815-383-3361</a>.</p>
+            <p>Prefer paper? <a href="assets/WCR-Engraved-Brick-Order-Form.pdf?v=2026-11-03" target="_blank" rel="noopener">Print the order form</a> and mail it in with your check, or email it to <a href="mailto:WatsekaCommunityRenewal@gmail.com">WatsekaCommunityRenewal@gmail.com</a>. Questions? Call Helen Gerber at <a href="tel:+18153833361">815-383-3361</a>.</p>
           </div>
           <div class="mural-info-card">
             <h3>Brick Details</h3>
@@ -185,7 +190,7 @@
               <li><strong>Size:</strong> 4&quot; x 8&quot; engraved brick</li>
               <li><strong>Price:</strong> $125 per brick, by check or online card</li>
               <li><strong>Order deadline:</strong> January 31, 2027</li>
-              <li><strong>Gift receipt:</strong> available on request</li>
+              <li><strong>Giving it as a gift?</strong> We&rsquo;ll email you a printable gift certificate showing the brick once your payment is received</li>
               <li><strong>Engraving:</strong> up to 3 lines, 20 characters per line, upper and lower case welcome, centered, with a lifetime engraving guarantee from the manufacturer</li>
               <li><strong>Installed:</strong> Spring 2027 at the Hubbard Trail mural site, 203 E. Walnut St.</li>
             </ul>
