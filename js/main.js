@@ -8,7 +8,6 @@ var TREES_SPONSORED = 14;
 // engraved (upper and lower case both work), and it appears on a brick in the home
 // page pop-up. Example: ['THE SMITH FAMILY', 'WATSEKA', 'EST. 1965'],
 var PAVERS = [
-  ['Nancy', '"Walk \'em Down"', 'Wheeler']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
