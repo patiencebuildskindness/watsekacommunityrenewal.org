@@ -8,7 +8,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="stylesheet" href="css/style.css?v=2026-10-28">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-04">
 </head>
 <body>
 
@@ -81,27 +81,27 @@
 
             <div class="form-group">
               <label for="paver-name">Full Name <span class="req">*</span></label>
-              <input type="text" id="paver-name" name="Full Name" autocomplete="name" required>
+              <input type="text" id="paver-name" data-keep name="Full Name" autocomplete="name" required>
             </div>
 
             <div class="form-group">
               <label for="paver-street">Street Address <span class="req">*</span></label>
-              <input type="text" id="paver-street" name="Street Address" autocomplete="street-address" required>
+              <input type="text" id="paver-street" data-keep name="Street Address" autocomplete="street-address" required>
             </div>
 
             <div class="form-group">
               <label for="paver-city">City, State, Zip <span class="req">*</span></label>
-              <input type="text" id="paver-city" name="City, State, Zip" required>
+              <input type="text" id="paver-city" data-keep name="City, State, Zip" required>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="paver-phone">Phone Number <span class="req">*</span></label>
-                <input type="tel" id="paver-phone" name="Phone" autocomplete="tel" required>
+                <input type="tel" id="paver-phone" data-keep name="Phone" autocomplete="tel" required>
               </div>
               <div class="form-group">
                 <label for="paver-email">Email Address <span class="req">*</span></label>
-                <input type="email" id="paver-email" name="email" autocomplete="email" required>
+                <input type="email" id="paver-email" data-keep name="email" autocomplete="email" required>
               </div>
             </div>
 
@@ -171,6 +171,14 @@
               </ul>
             </div>
             <p>Once your payment arrives, your brick will join our <a href="pavers.html">Paver Wall</a>. Thank you for leaving your mark on Watseka!</p>
+            <div class="order-again">
+              <h4>Ordering more bricks?</h4>
+              <p>Each brick needs its own form. We&rsquo;ll keep your name and contact information filled in, so you only need to type the next inscription.</p>
+              <p class="order-again-buttons">
+                <button type="button" class="btn btn-secondary" data-order-again="keep">Order Another Brick</button>
+                <button type="button" class="btn btn-secondary" data-order-again="blank">Start a Blank Form</button>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -367,6 +375,6 @@
     <p>&copy; 2026 Watseka Community Renewal. All rights reserved.</p>
   </footer>
 
-  <script src="js/main.js?v=2026-11-03b"></script>
+  <script src="js/main.js?v=2026-11-04"></script>
 </body>
 </html>

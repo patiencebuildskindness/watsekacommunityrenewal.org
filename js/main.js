@@ -305,6 +305,34 @@ document.addEventListener('DOMContentLoaded', function () {
     var error = form.querySelector('.form-error');
     var submitBtn = form.querySelector('button[type="submit"]');
     var submitLabel = submitBtn.textContent;
+    var kept = [];
+
+    // "Order Another Brick" on the thank-you message brings back an empty
+    // form, with the buyer's contact details filled in again ("keep") or
+    // completely blank ("blank")
+    thanks.querySelectorAll('[data-order-again]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        form.reset();
+        if (btn.getAttribute('data-order-again') === 'keep') {
+          kept.forEach(function (pair) { pair[0].value = pair[1]; });
+        }
+        form.querySelectorAll('input').forEach(function (el) {
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+        thanks.setAttribute('hidden', '');
+        thanks.querySelectorAll('[data-pay]').forEach(function (block) { block.setAttribute('hidden', ''); });
+        form.parentNode.querySelectorAll(':scope > h3, :scope > .form-note').forEach(function (el) {
+          el.removeAttribute('hidden');
+        });
+        form.removeAttribute('hidden');
+        if (error) error.setAttribute('hidden', '');
+        var first = Array.prototype.find.call(form.querySelectorAll('input[required]'), function (el) {
+          return !el.value && el.type !== 'radio';
+        });
+        form.scrollIntoView({ block: 'start' });
+        if (first) first.focus({ preventScroll: true });
+      });
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -348,6 +376,19 @@ document.addEventListener('DOMContentLoaded', function () {
         thanks.removeAttribute('hidden');
         thanks.focus();
         thanks.scrollIntoView({ block: 'center' });
+        // Clear the form right away, so the browser's Back button or a
+        // reload never brings the old order back. Contact details are kept
+        // in memory for the "Order Another Brick" button.
+        kept = [];
+        form.querySelectorAll('[data-keep]').forEach(function (el) {
+          kept.push([el, el.value]);
+        });
+        form.reset();
+        form.querySelectorAll('input').forEach(function (el) {
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitLabel;
       }).catch(function () {
         if (error) error.removeAttribute('hidden');
         submitBtn.disabled = false;

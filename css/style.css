@@ -1763,6 +1763,23 @@ footer a {
   margin-bottom: 6px;
 }
 
+.order-again {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.order-again h4 {
+  color: var(--brick);
+  margin-bottom: 6px;
+}
+
+.order-again-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .req {
   color: var(--brick);
 }
