@@ -1774,6 +1774,16 @@ footer a {
   margin-bottom: 6px;
 }
 
+.order-again .btn-secondary {
+  color: var(--brick);
+  border-color: var(--brick);
+}
+
+.order-again .btn-secondary:hover {
+  background: var(--brick);
+  color: var(--white);
+}
+
 .order-again-buttons {
   display: flex;
   flex-wrap: wrap;
