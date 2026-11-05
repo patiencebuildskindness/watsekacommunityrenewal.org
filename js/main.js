@@ -12,7 +12,17 @@ var PAVERS = [
   ['Ryan Bedeker', 'Loved son & father', 'Always in our heart'],
   ['Always in our heart', 'Randy "Sid" Roth', 'Loved by his family'],
   ['In loving memory of', 'Larry and Sherry', 'Waters'],
-  ['Ryan J. Gagnon', '06/23/73 - 02/06/90', 'Loving Memory - Mom']
+  ['Ryan J. Gagnon', '06/23/73 - 02/06/90', 'Loving Memory - Mom'],
+  ['Joe and Pat', 'Bechely', 'Iroquois Cafe'],
+  ['Landscape', 'Transformations Inc.', 'Wayne & Kristin Reid'],
+  ['Terry / Rhonda Pence'],
+  ['Benny and Dianne', 'Marcier'],
+  ['Dr. Rod Yergler', 'Susan Yergler', 'and Family'],
+  ['First Trust And', 'Savings Bank'],
+  ['Joyce Deany', 'Donald Deany'],
+  ['Eric Sloter', 'John Sloter', 'Mark Deany'],
+  ['In memory of', 'Judge Robert', 'Dannehl'],
+  ['In memory of', 'Ruth Ann', 'Dannehl']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
