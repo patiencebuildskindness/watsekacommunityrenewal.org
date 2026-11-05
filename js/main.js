@@ -8,6 +8,11 @@ var TREES_SPONSORED = 14;
 // engraved (upper and lower case both work), and it appears on a brick in the home
 // page pop-up. Example: ['THE SMITH FAMILY', 'WATSEKA', 'EST. 1965'],
 var PAVERS = [
+  ['In memory of', 'Cincinnati Dave', 'Always a town friend'],
+  ['Ryan Bedeker', 'Loved son & father', 'Always in our heart'],
+  ['Always in our heart', 'Randy "Sid" Roth', 'Loved by his family'],
+  ['In loving memory of', 'Larry and Sherry', 'Waters'],
+  ['Ryan J. Gagnon', '06/23/73 - 02/06/90', 'Loving Memory - Mom']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
