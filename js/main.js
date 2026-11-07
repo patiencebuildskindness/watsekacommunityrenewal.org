@@ -15,7 +15,7 @@ var PAVERS = [
   ['Ryan J. Gagnon', '06/23/73 - 02/06/90', 'Loving Memory - Mom'],
   ['Joe and Pat', 'Bechely', 'Iroquois Cafe'],
   ['Landscape', 'Transformations Inc.', 'Wayne & Kristin Reid'],
-  ['Terry / Rhonda Pence'],
+  ['Terry and Rhonda', 'Pence'],
   ['Benny and Dianne', 'Marcier'],
   ['Dr. Rod Yergler', 'Susan Yergler', 'and Family'],
   ['First Trust And', 'Savings Bank'],
