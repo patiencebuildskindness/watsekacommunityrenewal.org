@@ -19,10 +19,17 @@ var PAVERS = [
   ['Benny and Dianne', 'Marcier'],
   ['Dr. Rod Yergler', 'Susan Yergler', 'and Family'],
   ['First Trust And', 'Savings Bank'],
+  ['Mary Ruiz', '2/10/59 - 1/19/13', 'In loving memory-mom'],
   ['Joyce Deany', 'Donald Deany'],
   ['Eric Sloter', 'John Sloter', 'Mark Deany'],
   ['In memory of', 'Judge Robert', 'Dannehl'],
-  ['In memory of', 'Ruth Ann', 'Dannehl']
+  ['In memory of', 'Ruth Ann', 'Dannehl'],
+  ['In Loving Memory of', 'David A Canady', 'Lisa and Steve'],
+  ['In Memory of', 'Guy and Betty Yates', 'Dan and Lisa Yates'],
+  ['Michael Memenga', 'In Memory'],
+  ['Dennis & Terrie', 'Cahoe'],
+  ['Randy and Juanita', 'Muller'],
+  ['Charles C. Benbow', 'Watseka Warriors', 'Class of 1950']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
