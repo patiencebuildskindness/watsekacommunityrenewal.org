@@ -29,7 +29,10 @@ var PAVERS = [
   ['Michael Memenga', 'In Memory'],
   ['Dennis & Terrie', 'Cahoe'],
   ['Randy and Juanita', 'Muller'],
-  ['Charles C. Benbow', 'Watseka Warriors', 'Class of 1950']
+  ['Charles C. Benbow', 'Watseka Warriors', 'Class of 1950'],
+  ['Mary and Bob', 'Williams'],
+  ['WCHS', 'Class of 1961'],
+  ['City of Watseka']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
