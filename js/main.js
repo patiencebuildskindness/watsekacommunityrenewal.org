@@ -26,13 +26,18 @@ var PAVERS = [
   ['In memory of', 'Ruth Ann', 'Dannehl'],
   ['In Loving Memory of', 'David A Canady', 'Lisa and Steve'],
   ['In Memory of', 'Guy and Betty Yates', 'Dan and Lisa Yates'],
+  ['In Loving Memory of', 'Gene & Joyce Eilers'],
+  ['In Loving Memory of', 'Scott C. Elliott'],
   ['Michael Memenga', 'In Memory'],
   ['Dennis & Terrie', 'Cahoe'],
   ['Randy and Juanita', 'Muller'],
   ['Charles C. Benbow', 'Watseka Warriors', 'Class of 1950'],
   ['Mary and Bob', 'Williams'],
   ['WCHS', 'Class of 1961'],
-  ['City of Watseka']
+  ['City of Watseka'],
+  ['Iroquois Valley', 'Shrine Club'],
+  ['JR and Carol', 'Kaufmann'],
+  ['In Loving Memory of', 'Dominic "Ditty" and', 'Bonnie Lynch']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
