@@ -42,7 +42,8 @@ var PAVERS = [
   ['Donald and Rosann', 'Miller'],
   ['Iroquois Valley', 'Shrine Club'],
   ['JR and Carol', 'Kaufmann'],
-  ['In Loving Memory of', 'Dominic "Ditty" and', 'Bonnie Lynch']
+  ['In Loving Memory of', 'Dominic "Ditty" and', 'Bonnie Lynch'],
+  ['Silo Pub', 'Jon and Sonia Mann', 'Willow and Aspen']
 ];
 
 // Sample inscriptions that fill out the wall until enough real bricks are
