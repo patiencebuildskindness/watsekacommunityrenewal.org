@@ -45,6 +45,7 @@ var PAVERS = [
   ['In Loving Memory of', 'Dominic "Ditty" and', 'Bonnie Lynch'],
   ['Silo Pub', 'Jon and Sonia Mann', 'Willow and Aspen'],
   ['Renee\' R Gagnon', '05-11-85 - 01-07-90', 'Loving Memory - Mom'],
+  ['Gary and Deanna', 'Martin'],
   ['In Loving Memory of', 'Lee and Alice', 'Valentine'],
   ['IN LOVING MEMORY', 'R.P.DEVINE FAMILY', 'EST 1920'],
   ['In memory of', 'Kenneth E. Tucker', '1937 - 2007']
